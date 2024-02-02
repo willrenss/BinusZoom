@@ -3,27 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class first_commit : DbMigration
     {
         public override void Up()
         {
             CreateTable(
-                "dbo.Meetings",
-                c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        MeetingDate = c.DateTime(nullable: false),
-                        PosterPath = c.String(),
-                        CertificateTemplatePath = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(nullable: false, maxLength: 256),
+                        Id = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                        Name = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
@@ -32,8 +21,8 @@
                 "dbo.AspNetUserRoles",
                 c => new
                     {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
+                        UserId = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                        RoleId = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
                 .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
@@ -45,18 +34,18 @@
                 "dbo.AspNetUsers",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Email = c.String(maxLength: 256),
+                        Id = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                        Email = c.String(maxLength: 256, storeType: "nvarchar"),
                         EmailConfirmed = c.Boolean(nullable: false),
-                        PasswordHash = c.String(),
-                        SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
+                        PasswordHash = c.String(unicode: false),
+                        SecurityStamp = c.String(unicode: false),
+                        PhoneNumber = c.String(unicode: false),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
-                        LockoutEndDateUtc = c.DateTime(),
+                        LockoutEndDateUtc = c.DateTime(precision: 0),
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
-                        UserName = c.String(nullable: false, maxLength: 256),
+                        UserName = c.String(nullable: false, maxLength: 256, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex");
@@ -66,9 +55,9 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        ClaimType = c.String(),
-                        ClaimValue = c.String(),
+                        UserId = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                        ClaimType = c.String(unicode: false),
+                        ClaimValue = c.String(unicode: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
@@ -78,9 +67,9 @@
                 "dbo.AspNetUserLogins",
                 c => new
                     {
-                        LoginProvider = c.String(nullable: false, maxLength: 128),
-                        ProviderKey = c.String(nullable: false, maxLength: 128),
-                        UserId = c.String(nullable: false, maxLength: 128),
+                        LoginProvider = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                        ProviderKey = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
+                        UserId = c.String(nullable: false, maxLength: 128, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
@@ -105,7 +94,6 @@
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Meetings");
         }
     }
 }

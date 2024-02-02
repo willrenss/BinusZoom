@@ -7,13 +7,13 @@ namespace BinusZoom.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddMeetingEndDate : IMigrationMetadata
+    public sealed partial class first_commit : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMeetingEndDate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first_commit));
         
         string IMigrationMetadata.Id
         {
-            get { return "202401150537171_AddMeetingEndDate"; }
+            get { return "202402021621559_first_commit"; }
         }
         
         string IMigrationMetadata.Source
