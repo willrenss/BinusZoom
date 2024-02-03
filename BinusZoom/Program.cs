@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using BinusZoom.Data;
 namespace BinusZoom;
 
 public class Program
@@ -5,6 +8,8 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddDbContext<BinusZoomContext>(options =>
+            options.UseSqlite(builder.Configuration.GetConnectionString("BinusZoomContext") ?? throw new InvalidOperationException("Connection string 'BinusZoomContext' not found.")));
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
