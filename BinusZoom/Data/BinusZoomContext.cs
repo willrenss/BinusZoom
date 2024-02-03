@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using BinusZoom.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace BinusZoom.Data
+namespace BinusZoom.Data;
+
+public class BinusZoomContext : DbContext
 {
-    public class BinusZoomContext : DbContext
+    public BinusZoomContext(DbContextOptions<BinusZoomContext> options)
+        : base(options)
     {
-        public BinusZoomContext (DbContextOptions<BinusZoomContext> options)
-            : base(options)
-        {
-        }
-
-        public DbSet<BinusZoom.Models.Meeting> Meeting { get; set; } = default!;
     }
+
+    public DbSet<Meeting> Meeting { get; set; } = default!;
 }

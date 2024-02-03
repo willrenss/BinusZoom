@@ -1,4 +1,4 @@
-@model IEnumerable<BinusZoom.Models.Meeting>
+@model IEnumerable<Meeting>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,30 +12,25 @@
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MeetingDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MeetingEndDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PosterPath)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CertificateTemplatePath)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PosterPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CertificateTemplatePath)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MeetingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MeetingEndDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PosterPath)
@@ -49,6 +44,6 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
