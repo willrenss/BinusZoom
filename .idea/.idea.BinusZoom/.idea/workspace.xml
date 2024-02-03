@@ -14,10 +14,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="edit gitignore">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="add debug to gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/ErrorViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +31,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///Users/raymond/Documents/Github/BinusZoom/BinusZoom/obj/Debug/net8.0/BinusZoom.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///Users/raymond/Documents/Github/BinusZoom/BinusZoom/obj/Debug/net8.0/BinusZoom.AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/94c6a8cc6e4c43be87b551dd14bff7094f400/fb/35cf01d5/MySqlEFConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/183877b6396f3bb19ef45c68c9d13c89387ca5f72a42e74315edbb9e9f61/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -179,7 +181,7 @@
       <workItem from="1706891208346" duration="3347000" />
       <workItem from="1706894608638" duration="458000" />
       <workItem from="1706931495313" duration="1320000" />
-      <workItem from="1706935724432" duration="272000" />
+      <workItem from="1706935724432" duration="1073000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -221,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706935983731</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add debug to gitignore">
+      <option name="closed" value="true" />
+      <created>1706936016543</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1706936016543</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +245,8 @@
     <MESSAGE value="add git ignore lagi" />
     <MESSAGE value="remove obj" />
     <MESSAGE value="edit gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit gitignore" />
+    <MESSAGE value="add debug to gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add debug to gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
