@@ -14,23 +14,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.js" afterDir="false" />
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="succesfully upload file">
+      <change beforePath="$PROJECT_DIR$/BinusZoom/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +103,7 @@
       <workItem from="1706894608638" duration="458000" />
       <workItem from="1706931495313" duration="1320000" />
       <workItem from="1706935724432" duration="1212000" />
-      <workItem from="1706950515099" duration="9318000" />
+      <workItem from="1706950515099" duration="9750000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -192,7 +177,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706936902537</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="succesfully upload file">
+      <option name="closed" value="true" />
+      <created>1706971951295</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706971951295</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,7 +203,8 @@
     <MESSAGE value="rapiin" />
     <MESSAGE value="scaffold Meeting insert" />
     <MESSAGE value="add db" />
-    <option name="LAST_COMMIT_MESSAGE" value="add db" />
+    <MESSAGE value="succesfully upload file" />
+    <option name="LAST_COMMIT_MESSAGE" value="succesfully upload file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
