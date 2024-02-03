@@ -14,21 +14,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="add git ignore lagi">
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="edit gitignore">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/BinusZoom.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/BinusZoom.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/BinusZoom.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/BinusZoom.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.GlobalUsings.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.RazorAssemblyInfo.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.RazorAssemblyInfo.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.RazorAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.RazorAssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/Debug/net8.0/BinusZoom.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/obj/project.nuget.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +179,7 @@
       <workItem from="1706891208346" duration="3347000" />
       <workItem from="1706894608638" duration="458000" />
       <workItem from="1706931495313" duration="1320000" />
-      <workItem from="1706935724432" duration="222000" />
+      <workItem from="1706935724432" duration="272000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -216,7 +205,23 @@
       <option name="project" value="LOCAL" />
       <updated>1706935825641</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="remove obj">
+      <option name="closed" value="true" />
+      <created>1706935968534</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706935968534</updated>
+    </task>
+    <task id="LOCAL-00005" summary="edit gitignore">
+      <option name="closed" value="true" />
+      <created>1706935983731</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1706935983731</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +233,9 @@
     <MESSAGE value="set up mysql" />
     <MESSAGE value="add gitginore" />
     <MESSAGE value="add git ignore lagi" />
-    <option name="LAST_COMMIT_MESSAGE" value="add git ignore lagi" />
+    <MESSAGE value="remove obj" />
+    <MESSAGE value="edit gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit gitignore" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
