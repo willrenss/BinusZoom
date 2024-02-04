@@ -16,20 +16,6 @@
   <component name="ChangeListManager">
     <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203093459_FirstMigration.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203093459_FirstMigration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203135032_DateOnly.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203135032_DateOnly.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/BinusZoomContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +110,8 @@
       <workItem from="1706950515099" duration="10251000" />
       <workItem from="1706972724041" duration="1229000" />
       <workItem from="1707016205376" duration="5122000" />
-      <workItem from="1707062088801" duration="22000" />
+      <workItem from="1707062088801" duration="54000" />
+      <workItem from="1707065299572" duration="160000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -214,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706971976805</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="scaffold auto generated id">
+      <option name="closed" value="true" />
+      <created>1707062128653</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707062128653</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +229,8 @@
     <MESSAGE value="add db" />
     <MESSAGE value="succesfully upload file" />
     <MESSAGE value="ignore image" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore image" />
+    <MESSAGE value="scaffold auto generated id" />
+    <option name="LAST_COMMIT_MESSAGE" value="scaffold auto generated id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
