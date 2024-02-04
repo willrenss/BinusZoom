@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BinusZoom.Migrations
 {
     [DbContext(typeof(BinusZoomContext))]
-    [Migration("20240203093459_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20240204043604_CertificateTemplatePath")]
+    partial class CertificateTemplatePath
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,9 +32,6 @@ namespace BinusZoom.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("MeetingDate")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("MeetingEndDate")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("PosterPath")

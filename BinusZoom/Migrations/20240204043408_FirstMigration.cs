@@ -20,9 +20,7 @@ namespace BinusZoom.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     MeetingDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    MeetingEndDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    PosterPath = table.Column<string>(type: "longtext", nullable: false),
-                    CertificateTemplatePath = table.Column<string>(type: "longtext", nullable: false)
+                    PosterPath = table.Column<string>(type: "longtext", nullable: false)
                 },
                 constraints: table =>
                 {

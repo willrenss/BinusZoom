@@ -14,11 +14,6 @@
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Id" class="control-label"></label>
-                <input asp-for="Id" class="form-control"/>
-                <span asp-validation-for="Id" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="MeetingDate" class="control-label"></label>
                 <input asp-for="MeetingDate" class="form-control" type="date"/>
                 <span asp-validation-for="MeetingDate" class="text-danger"></span>
@@ -30,11 +25,6 @@
             </div>
             <div class="form-group">
                 <input id="templateFile" name="templateFile" class="form-control" type="file"/>
-            </div>
-            <div class="form-group">
-                <label asp-for="CertificateTemplatePath" class="control-label"></label>
-                <input asp-for="CertificateTemplatePath" class="form-control"/>
-                <span asp-validation-for="CertificateTemplatePath" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary"/>

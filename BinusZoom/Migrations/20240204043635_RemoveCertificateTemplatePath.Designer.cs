@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BinusZoom.Migrations
 {
     [DbContext(typeof(BinusZoomContext))]
-    [Migration("20240203135032_DateOnly")]
-    partial class DateOnly
+    [Migration("20240204043635_RemoveCertificateTemplatePath")]
+    partial class RemoveCertificateTemplatePath
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,12 +27,8 @@ namespace BinusZoom.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("CertificateTemplatePath")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<DateOnly>("MeetingDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("MeetingDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("PosterPath")
                         .IsRequired()

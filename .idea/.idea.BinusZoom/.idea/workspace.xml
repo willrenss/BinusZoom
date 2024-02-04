@@ -14,8 +14,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="succesfully upload file">
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203093459_FirstMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203093459_FirstMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203135032_DateOnly.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240203135032_DateOnly.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/BinusZoomContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,13 +40,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/raymond/Documents/Github/BinusZoom/BinusZoom/Models/Meeting.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/raymond/Documents/Github/BinusZoom/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/raymond/Documents/Github/BinusZoom/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///Users/raymond/Documents/Github/BinusZoom/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/94c6a8cc6e4c43be87b551dd14bff7094f400/fb/35cf01d5/MySqlEFConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/183877b6396f3bb19ef45c68c9d13c89387ca5f72a42e74315edbb9e9f61/ArgumentException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8a6ae86fc6d9979eeeb44f3b1485baab5424ed9ddc4db4f72f1c021f9ee17bd/BindAttribute.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -46,31 +64,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;HotReloadSettingsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
     ],
-    "rider.external.source.directories": [
-      "/Users/raymond/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache",
-      "/Users/raymond/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache",
-      "/Users/raymond/.local/share/Symbols/src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/raymond/Library/Application Support/JetBrains/Rider2023.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/raymond/Library/Application Support/JetBrains/Rider2023.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/raymond/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="BinusZoom" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" />
@@ -103,7 +121,10 @@
       <workItem from="1706894608638" duration="458000" />
       <workItem from="1706931495313" duration="1320000" />
       <workItem from="1706935724432" duration="1212000" />
-      <workItem from="1706950515099" duration="9750000" />
+      <workItem from="1706950515099" duration="10251000" />
+      <workItem from="1706972724041" duration="1229000" />
+      <workItem from="1707016205376" duration="5122000" />
+      <workItem from="1707062088801" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -185,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706971951295</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="ignore image">
+      <option name="closed" value="true" />
+      <created>1706971976805</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706971976805</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +233,8 @@
     <MESSAGE value="scaffold Meeting insert" />
     <MESSAGE value="add db" />
     <MESSAGE value="succesfully upload file" />
-    <option name="LAST_COMMIT_MESSAGE" value="succesfully upload file" />
+    <MESSAGE value="ignore image" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignore image" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -214,10 +244,10 @@
           <line>64</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="65" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1873" />
+              <option value="1831" />
             </startOffsets>
             <endOffsets>
-              <option value="1895" />
+              <option value="1853" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
@@ -227,10 +257,10 @@
           <line>65</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="66" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1908" />
+              <option value="1866" />
             </startOffsets>
             <endOffsets>
-              <option value="1942" />
+              <option value="1900" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
@@ -240,39 +270,39 @@
           <line>66</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="67" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1955" />
+              <option value="1913" />
             </startOffsets>
             <endOffsets>
-              <option value="1994" />
+              <option value="1952" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>54</line>
-          <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="54" containingFunctionPresentation="Method 'Create'">
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="52" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1442" />
+              <option value="1344" />
             </startOffsets>
             <endOffsets>
-              <option value="1526" />
+              <option value="1369" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>62</line>
-          <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="62" containingFunctionPresentation="Method 'Create'">
+          <line>50</line>
+          <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="50" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1816" />
+              <option value="1298" />
             </startOffsets>
             <endOffsets>
-              <option value="1846" />
+              <option value="1321" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="5" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
