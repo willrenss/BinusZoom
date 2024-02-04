@@ -14,8 +14,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="add installation md">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +113,7 @@
       <workItem from="1706972724041" duration="1229000" />
       <workItem from="1707016205376" duration="5122000" />
       <workItem from="1707062088801" duration="54000" />
-      <workItem from="1707065299572" duration="160000" />
+      <workItem from="1707065299572" duration="508000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -209,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707062128653</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add installation md">
+      <option name="closed" value="true" />
+      <created>1707065470698</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707065470698</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +240,8 @@
     <MESSAGE value="succesfully upload file" />
     <MESSAGE value="ignore image" />
     <MESSAGE value="scaffold auto generated id" />
-    <option name="LAST_COMMIT_MESSAGE" value="scaffold auto generated id" />
+    <MESSAGE value="add installation md" />
+    <option name="LAST_COMMIT_MESSAGE" value="add installation md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
