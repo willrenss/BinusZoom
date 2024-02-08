@@ -8,10 +8,30 @@ public class Program
     public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddDbContext<BinusZoomContext>(options =>
-            options.UseMySQL(builder.Configuration.GetConnectionString("BinusZoomContext") ??
-                             throw new InvalidOperationException("Connection string 'BinusZoomContext' not found.")));
-        
+
+
+        var dbDriver = builder.Configuration.GetValue<String>("DBDriver");
+
+        switch (dbDriver)
+        {
+
+            case "MySQL":
+                builder.Services.AddDbContext<BinusZoomContext>(options =>
+                 options.UseMySQL(builder.Configuration.GetConnectionString("BinusZoomContextMySQL") ??
+                           throw new InvalidOperationException("Connection string 'BinusZoomContextMySQL' not found.")));
+                break;
+
+            case "SQLServer":
+                builder.Services.AddDbContext<BinusZoomContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("BinusZoomContextSQLServer") ??
+                          throw new InvalidOperationException("Connection string 'BinusZoomContextSQLServer' not found.")));
+                break;
+        }
+
+      
+
+
+
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 

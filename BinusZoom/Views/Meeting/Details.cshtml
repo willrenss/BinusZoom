@@ -17,15 +17,16 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.MeetingDate)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PosterPath)
+        <dt class="col-sm-10">
+            Poster Image
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PosterPath)
+        <dd >
+            <img class="img-thumbnail" src="~/@Html.DisplayFor(model => model.PosterPath)"/>
         </dd>
     </dl>
 </div>
 <div>
+    <a asp-action="Create" asp-controller="Meeting" asp-route-id="@Model?.Id">Register to this event</a>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
