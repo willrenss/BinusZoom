@@ -12,7 +12,7 @@ public class Meeting
     // exclude from modelstate.isvalid when create
     // auto generate guid
     [Key]
-    [ValidateNever]
+    [ValidateNever] // exclude from modelstate.isvalid when create
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public String Id { get; set; }
 

@@ -16,30 +16,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="add installation md">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="misc">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/FileContentIndex/10b2bfe4-913d-43ca-81fe-4fa65c6d7e4b.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/FileContentIndex/249cd2a6-838d-4606-8f17-3342a7de045f.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/FileContentIndex/4fb054ef-2b82-4504-89cb-86295b5dbc54.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/FileContentIndex/897d6248-fdda-4425-bc56-1234236890c8.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/FileContentIndex/feb929fa-eb5c-4dbe-877c-3bcedfbad1fd.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/v17/workspaceFileList.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/v17/workspaceFileList.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.metadata.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.projects.v7.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/slnx.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +171,7 @@
       <workItem from="1707065299572" duration="508000" />
       <workItem from="1707383264111" duration="511000" />
       <workItem from="1707383860664" duration="174000" />
-      <workItem from="1707384732756" duration="1238000" />
+      <workItem from="1707384732756" duration="1930000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -296,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707065470698</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="misc">
+      <option name="closed" value="true" />
+      <created>1707386001879</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707386001879</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +307,8 @@
     <MESSAGE value="ignore image" />
     <MESSAGE value="scaffold auto generated id" />
     <MESSAGE value="add installation md" />
-    <option name="LAST_COMMIT_MESSAGE" value="add installation md" />
+    <MESSAGE value="misc" />
+    <option name="LAST_COMMIT_MESSAGE" value="misc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
