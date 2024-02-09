@@ -1,0 +1,39 @@
+@model Meeting
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>title</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PosterPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PosterPath)
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Registrations)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaLengkap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIM)
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

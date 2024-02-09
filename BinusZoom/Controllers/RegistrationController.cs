@@ -49,12 +49,13 @@ namespace BinusZoom.Controllers
         // POST: Registration/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost("Registration/{eventId}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NIM,Email,NamaLengkap")] Registration registration)
+        public async Task<IActionResult> Create([Bind("NIM,Email,NamaLengkap")] Registration registration, String eventId)
         {
             if (ModelState.IsValid)
             {
+                registration.Meeting = await _context.Meeting.FindAsync(eventId);
                 _context.Add(registration);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

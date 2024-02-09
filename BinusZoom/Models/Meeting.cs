@@ -24,4 +24,6 @@ public class Meeting
     
     public string PosterPath { get; set; }
 
+    [ValidateNever]
+    public ICollection<Registration> Registrations { get; set; } = default!;
 }

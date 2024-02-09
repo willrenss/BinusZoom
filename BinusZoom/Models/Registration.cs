@@ -26,6 +26,5 @@ public class Registration
     public String NamaLengkap { get; set; }
     
     [ValidateNever]
-    [BindNever]
-    public String MeetingId { get; set; }
+    public Meeting? Meeting { get; set; }
 }

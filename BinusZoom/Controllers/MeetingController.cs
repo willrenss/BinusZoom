@@ -134,6 +134,20 @@ public class MeetingController : Controller
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
+    
+    // GET: Meeting/5/Participants
+    [HttpGet("Meeting/{id}/Participants")]
+    public async Task<IActionResult> Participants(string id)
+    {
+        if (id == null) return NotFound();
+
+        var meeting = await _context.Meeting
+            .Include(meeting1 => meeting1.Registrations)
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (meeting == null) return NotFound();
+
+        return View(meeting);
+    }
 
     private bool MeetingExists(string id)
     {
