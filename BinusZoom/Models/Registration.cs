@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace BinusZoom.Models;
@@ -23,4 +24,8 @@ public class Registration
     [Required(ErrorMessage = "Harap mengisi Nama")]
     [Display(Name = "Nama")]
     public String NamaLengkap { get; set; }
+    
+    [ValidateNever]
+    [BindNever]
+    public String MeetingId { get; set; }
 }

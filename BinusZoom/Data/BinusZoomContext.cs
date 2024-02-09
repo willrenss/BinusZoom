@@ -14,5 +14,5 @@ public class BinusZoomContext : DbContext
 
     public DbSet<Meeting> Meeting { get; set; } = default!;
 
-public DbSet<BinusZoom.Models.Registration> Registration { get; set; } = default!;
+    public DbSet<Registration> Registration { get; set; } = default!;
 }

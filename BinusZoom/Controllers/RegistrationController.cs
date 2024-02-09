@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BinusZoom.Data;
 using BinusZoom.Models;
@@ -26,6 +21,7 @@ namespace BinusZoom.Controllers
         }
 
         // GET: Registration/Details/5
+        [HttpGet("Registration/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -44,7 +40,8 @@ namespace BinusZoom.Controllers
         }
 
         // GET: Registration/Create
-        public IActionResult Create()
+        [HttpGet("Registration/{event_id}")]
+        public IActionResult Create(String event_id)
         {
             return View();
         }
@@ -54,7 +51,7 @@ namespace BinusZoom.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,NIM,Email,NamaLengkap")] Registration registration)
+        public async Task<IActionResult> Create([Bind("NIM,Email,NamaLengkap")] Registration registration)
         {
             if (ModelState.IsValid)
             {
