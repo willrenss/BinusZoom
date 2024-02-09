@@ -9,7 +9,6 @@ public class BinusZoomContext : DbContext
         : base(options)
     { 
         //ensure migrated
-        Database.EnsureCreated();
     }
 
     public DbSet<Meeting> Meeting { get; set; } = default!;

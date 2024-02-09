@@ -19,22 +19,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="scaffold shit">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Data/BinusZoomContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240204043408_FirstMigration.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240204043408_FirstMigration.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240204043604_CertificateTemplatePath.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240204043604_CertificateTemplatePath.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240204043635_RemoveCertificateTemplatePath.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240204043635_RemoveCertificateTemplatePath.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240209075140_FirstMigrations.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/20240209075140_FirstMigrations.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/BinusZoomContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Registration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Registration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +47,7 @@
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/423b1a0d38036efcefdbf1dfb80955449eae1238/src/EFCore.SqlServer/Extensions/SqlServerDbContextOptionsBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/52f84a2146e441a6a918b43efd67a7fe3c400/dd/e97c89ba/MySQLDbContextOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f13a195a22ea416bbdf80fde25cae7051e39c0/68/976a19f8/RelationalDbContextOptionsBuilder`2.cs" root0="SKIP_HIGHLIGHTING" />
@@ -191,7 +182,7 @@
       <workItem from="1707383860664" duration="174000" />
       <workItem from="1707384732756" duration="2117000" />
       <workItem from="1707408196610" duration="6264000" />
-      <workItem from="1707456125674" duration="7728000" />
+      <workItem from="1707456125674" duration="8102000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -313,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707386680875</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="scaffold shit">
+      <option name="closed" value="true" />
+      <created>1707465267748</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707465267748</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +336,8 @@
     <MESSAGE value="add installation md" />
     <MESSAGE value="misc" />
     <MESSAGE value="scaffold registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="scaffold registration" />
+    <MESSAGE value="scaffold shit" />
+    <option name="LAST_COMMIT_MESSAGE" value="scaffold shit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
