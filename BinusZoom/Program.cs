@@ -1,4 +1,6 @@
+using BinusZoom.Controllers;
 using BinusZoom.Data;
+using BinusZoom.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom;
@@ -9,9 +11,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-
         var dbDriver = builder.Configuration.GetValue<String>("DBDriver");
-
         switch (dbDriver)
         {
 
@@ -27,10 +27,6 @@ public class Program
                           throw new InvalidOperationException("Connection string 'BinusZoomContextSQLServer' not found.")));
                 break;
         }
-
-      
-
-
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
@@ -54,13 +50,15 @@ public class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 
-        app.UseRouting();
+        // app.UseRouting();
 
         app.UseAuthorization();
 
         app.MapControllerRoute(
             "default",
-            "{controller=Home}/{action=Index}/{id?}");
+            "{controller=Home}/{action=Index}/{id?}").RequireRateLimiting("LimitRequest");
+
+        app.MapControllers().RequireRateLimiting("LimitRequest");
 
         app.Run();
     }

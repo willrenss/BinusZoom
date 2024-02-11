@@ -1,5 +1,6 @@
 using BinusZoom.Data;
 using BinusZoom.Models;
+using BinusZoom.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -128,6 +129,7 @@ public class MeetingController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(string id)
     {
+        
         var meeting = await _context.Meeting.FindAsync(id);
         if (meeting != null) _context.Meeting.Remove(meeting);
 
@@ -139,6 +141,16 @@ public class MeetingController : Controller
     [HttpGet("Meeting/{id}/Participants")]
     public async Task<IActionResult> Participants(string id)
     {
+        // get current time in long
+        long startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        
+        Task task = new Task(() =>
+        {
+            Console.WriteLine("HELLO WORLD! FROM TASK => " + DateTime.Now.ToString("HH:mm:ss.fff"));
+        });
+        TimeSpan timeSpan = TimeSpan.FromSeconds(10);
+        EmailScheduler es = new EmailScheduler(task, timeSpan);
+        await es.StartAsync(CancellationToken.None);
         if (id == null) return NotFound();
 
         var meeting = await _context.Meeting

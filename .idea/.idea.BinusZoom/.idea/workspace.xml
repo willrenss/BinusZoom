@@ -19,16 +19,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="first commit shit">
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="add git ignore">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/BinusZoom/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/BinusZoom/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.metadata.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.metadata.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.projects.v7.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/binuszoom.projects.v7.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj.user" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Registration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Registration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Registration/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Registration/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,29 +39,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Controllers/MeetingController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Controllers/RegistrationController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Data/BinusZoomContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Data/BinusZoomContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Models/Meeting.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Models/Registration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Models/Registration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Registration/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/8e941eb42f819adb116b881195158b3887a70a1c/src/Http/Routing/src/Builder/EndpointRoutingApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/efcore/423b1a0d38036efcefdbf1dfb80955449eae1238/src/EFCore.SqlServer/Extensions/SqlServerDbContextOptionsBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/Microsoft.Extensions.Hosting.Abstractions/src/BackgroundService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2158f4f04358416a9be3e74eb2b544461de8a0/2d/7e1fb2c9/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/477b4e826ead4ecf86f19cf2ddbb4649c8f910/c9/bc852d68/Timer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/52f84a2146e441a6a918b43efd67a7fe3c400/dd/e97c89ba/MySQLDbContextOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f13a195a22ea416bbdf80fde25cae7051e39c0/68/976a19f8/RelationalDbContextOptionsBuilder`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4c32958d8e8197ff3a8cad5383fa9a0f783157cc8c3f07a74cef668311de/ControllerEndpointRouteBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +79,8 @@
     ".NET Launch Settings Profile.BinusZoom.executor": "Run",
     ".NET Launch Settings Profile.BinusZoom: IIS Express.executor": "Debug",
     ".NET Launch Settings Profile.BinusZoom: watch-windows.executor": "Run",
-    "Native Executable.Unnamed.executor": "Debug",
+    "Native Executable.Run Watch.executor": "Run",
+    "Native Executable.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -93,7 +90,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Inspections-C#",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -107,7 +104,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.BinusZoom: IIS Express">
+  <component name="RunManager" selected="Native Executable.Run Watch">
     <configuration name="BinusZoom" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -154,11 +151,15 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="RunNativeExe" factoryName="Native Executable" nameIsGenerated="true">
+    <configuration name="Run Watch" type="RunNativeExe" factoryName="Native Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Program Files/dotnet/dotnet.exe" />
-      <option name="PROGRAM_PARAMETERS" value="watch" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../Program Files/dotnet" />
+      <option name="PROGRAM_PARAMETERS" value="watch --urls=&quot;https://localhost:7027;http://localhost:5207;https://192.168.1.20:7027&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/BinusZoom" />
       <option name="PASS_PARENT_ENVS" value="1" />
+      <envs>
+        <env name="ASPNETCORE_URLS" value="https://localhost:7027" />
+        <env name="https://192.168.1.20:7027 ASPNETCORE_ENVIRONMENT" value="Development" />
+      </envs>
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2">
         <option name="Build Solution" enabled="true" />
@@ -168,7 +169,7 @@
       <item itemvalue=".NET Launch Settings Profile.BinusZoom" />
       <item itemvalue=".NET Launch Settings Profile.BinusZoom: IIS Express" />
       <item itemvalue=".NET Launch Settings Profile.BinusZoom: watch-windows" />
-      <item itemvalue="Native Executable.Unnamed" />
+      <item itemvalue="Native Executable.Run Watch" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -194,7 +195,10 @@
       <workItem from="1707383860664" duration="174000" />
       <workItem from="1707384732756" duration="2117000" />
       <workItem from="1707408196610" duration="6264000" />
-      <workItem from="1707456125674" duration="11939000" />
+      <workItem from="1707456125674" duration="12023000" />
+      <workItem from="1707472234465" duration="115000" />
+      <workItem from="1707472363323" duration="3941000" />
+      <workItem from="1707667416526" duration="3216000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -332,7 +336,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707467288555</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="scaffold register event and list">
+      <option name="closed" value="true" />
+      <created>1707470571679</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707470571679</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add git ignore">
+      <option name="closed" value="true" />
+      <created>1707668864011</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707668864011</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,72 +378,74 @@
     <MESSAGE value="scaffold registration" />
     <MESSAGE value="scaffold shit" />
     <MESSAGE value="first commit shit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit shit" />
+    <MESSAGE value="scaffold register event and list" />
+    <MESSAGE value="add git ignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add git ignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>64</line>
+          <line>65</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="65" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1831" />
+              <option value="1856" />
             </startOffsets>
             <endOffsets>
-              <option value="1853" />
+              <option value="1878" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>65</line>
+          <line>66</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="66" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1866" />
+              <option value="1891" />
             </startOffsets>
             <endOffsets>
-              <option value="1900" />
+              <option value="1925" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>66</line>
+          <line>67</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="67" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1913" />
+              <option value="1938" />
             </startOffsets>
             <endOffsets>
-              <option value="1952" />
+              <option value="1977" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>52</line>
+          <line>53</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="52" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1344" />
+              <option value="1369" />
             </startOffsets>
             <endOffsets>
-              <option value="1369" />
+              <option value="1394" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>50</line>
+          <line>51</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="50" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1298" />
+              <option value="1323" />
             </startOffsets>
             <endOffsets>
-              <option value="1321" />
+              <option value="1346" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
