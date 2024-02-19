@@ -23,4 +23,15 @@
         <Folder Include="wwwroot\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Content\bootstrap-datetimepicker.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Content\bootstrap-datetimepicker.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\bootstrap-datetimepicker.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\bootstrap-datetimepicker.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\moment-with-locales.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\moment-with-locales.min.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\moment.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\moment.min.js" />
+    </ItemGroup>
+
 </Project>
