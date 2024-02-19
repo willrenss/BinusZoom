@@ -17,6 +17,10 @@ public class Meeting
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public String Id { get; set; }
 
+    [Required(ErrorMessage = "Harap mengisi judul meeting")]
+    [Display(Name = "Judul Meeting")]
+    public String Title { get; set; }
+    
     [Required(ErrorMessage = "Harap mengisi meeting date")]
     [DataType(DataType.Date)]
     [Display(Name = "Event Date")]

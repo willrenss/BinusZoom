@@ -50,7 +50,7 @@ public class Program
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 
-        // app.UseRouting();
+        app.UseRouting();
 
         app.UseAuthorization();
 
@@ -58,6 +58,8 @@ public class Program
             "default",
             "{controller=Home}/{action=Index}/{id?}").RequireRateLimiting("LimitRequest");
 
+        
+        
         app.MapControllers().RequireRateLimiting("LimitRequest");
 
         app.Run();

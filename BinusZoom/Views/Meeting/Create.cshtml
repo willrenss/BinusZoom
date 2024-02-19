@@ -4,7 +4,6 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h1>Create</h1>
 
 <h4>Meeting</h4>
@@ -14,14 +13,14 @@
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="MeetingDate" class="control-label"></label>
-                <input asp-for="MeetingDate" class="form-control" type="date"/>
-                <span asp-validation-for="MeetingDate" class="text-danger"></span>
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control"/>
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PosterPath" class="control-label"></label>
-                <input asp-for="PosterPath" class="form-control"/>
-                <span asp-validation-for="PosterPath" class="text-danger"></span>
+                <label asp-for="MeetingDate" class="control-label"></label>
+                <input asp-for="MeetingDate" class="form-control" type="datetime-local"/>
+                <span asp-validation-for="MeetingDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LinkUrl" class="control-label"></label>
@@ -33,7 +32,7 @@
                 <input id="templateFile" name="templateFile" class="form-control" type="file"/>
             </div>
             <div class="form-group">
-                <br/>   
+                <br/>
                 <input type="submit" value="Create" class="btn btn-primary"/>
             </div>
         </form>

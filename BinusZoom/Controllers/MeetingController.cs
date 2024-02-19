@@ -45,7 +45,7 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(
-        [Bind("MeetingDate,PosterPath, LinkUrl")] 
+        [Bind("Title,MeetingDate,PosterPath, LinkUrl")] 
         Meeting meeting, 
         IFormFile templateFile)
     {
@@ -54,8 +54,11 @@ public class MeetingController : Controller
             if (templateFile != null)
             {
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(templateFile.FileName);
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", fileName);
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/public_imgs");
+                var filePath = Path.Combine(folderPath, fileName);
 
+                Directory.CreateDirectory(folderPath);
+                
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     templateFile.CopyTo(fileStream);
