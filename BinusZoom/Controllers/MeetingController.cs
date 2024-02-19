@@ -45,7 +45,7 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(
-        [Bind("MeetingDate,PosterPath")] 
+        [Bind("MeetingDate,PosterPath, LinkUrl")] 
         Meeting meeting, 
         IFormFile templateFile)
     {

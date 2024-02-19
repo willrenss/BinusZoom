@@ -28,6 +28,10 @@ namespace BinusZoom.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("LinkUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("MeetingDate")
                         .HasColumnType("datetime2");
 

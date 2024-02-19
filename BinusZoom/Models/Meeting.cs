@@ -22,8 +22,14 @@ public class Meeting
     [Display(Name = "Event Date")]
     public DateTime MeetingDate { get; set; }
     
+    [Url(ErrorMessage = "Harap menaruh URL yang tepat")]
+    [Required(ErrorMessage = "Mohon mengisi link meeting")]
+    [Display(Name = "URL untuk link meeting")]
+    public String LinkUrl { get; set; }
+    
+    [ValidateNever] // exclude from modelstate.isvalid when create
     public string PosterPath { get; set; }
 
-    [ValidateNever]
+    [ValidateNever] // exclude from modelstate.isvalid when create
     public ICollection<Registration> Registrations { get; set; } = default!;
 }
