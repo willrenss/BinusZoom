@@ -43,6 +43,11 @@ namespace BinusZoom.Controllers
         [HttpGet("Registration/{event_id}")]
         public IActionResult Create(String event_id)
         {
+            Meeting meeting = _context.Meeting.Find(event_id);
+            if (meeting == null)
+            {
+                return NotFound();
+            }
             return View();
         }
 
@@ -58,11 +63,28 @@ namespace BinusZoom.Controllers
                 registration.Meeting = await _context.Meeting.FindAsync(eventId);
                 _context.Add(registration);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                Console.WriteLine("DX: Registration is saved. Redirecting to confirmation page.");
+                return RedirectToAction(nameof(Confirmation), new { registration_id = registration.Id });
             }
             return View(registration);
         }
+        
+        // GET: Registration/Confirmation
+        [HttpGet("Registration/{registration_id}/Confirmation")]
+        public async Task<IActionResult> Confirmation(String registration_id)
+        {
+            var registration = await _context.Registration
+                .Include(r => r.Meeting)
+                .FirstOrDefaultAsync(registration1 => registration1.Id == registration_id);
+            
+            if (registration == null)
+            {
+                return NotFound();
+            }
 
+            return View(registration);
+        }
+        
         // GET: Registration/Edit/5
         public async Task<IActionResult> Edit(string id)
         {

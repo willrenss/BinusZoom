@@ -21,12 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Migrations/BinusZoomContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Migrations/BinusZoomContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Registration/Create.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Delete.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Registration/Delete.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Registration/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Registration/Edit.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,17 +38,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
@@ -72,7 +70,7 @@
     ".NET Launch Settings Profile.BinusZoom.executor": "Run",
     ".NET Launch Settings Profile.BinusZoom: IIS Express.executor": "Debug",
     ".NET Launch Settings Profile.BinusZoom: watch-windows.executor": "Run",
-    "Native Executable.Run Watch.executor": "Run",
+    "Native Executable.Run Watch.executor": "Debug",
     "Native Executable.Unnamed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -83,7 +81,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -97,7 +95,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected="Native Executable.Run Watch">
+  <component name="RunManager" selected=".NET Launch Settings Profile.BinusZoom: IIS Express">
     <configuration name="BinusZoom" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -192,7 +190,8 @@
       <workItem from="1707472234465" duration="115000" />
       <workItem from="1707472363323" duration="3941000" />
       <workItem from="1707667416526" duration="3216000" />
-      <workItem from="1708336493637" duration="3977000" />
+      <workItem from="1708336493637" duration="4061000" />
+      <workItem from="1708403434498" duration="4726000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -362,7 +361,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708329708584</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="scaffold meeting's title">
+      <option name="closed" value="true" />
+      <created>1708343547013</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1708343547013</updated>
+    </task>
+    <task id="LOCAL-00023" summary="remove unused js">
+      <option name="closed" value="true" />
+      <created>1708343581976</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1708343581976</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +407,9 @@
     <MESSAGE value="add git ignore" />
     <MESSAGE value="scaffold URL fields" />
     <MESSAGE value="remove image" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove image" />
+    <MESSAGE value="scaffold meeting's title" />
+    <MESSAGE value="remove unused js" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unused js" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -463,18 +480,26 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs</url>
-          <line>55</line>
-          <properties documentPath="C:\UserTEmp\GITHUB\BinusZoom\BinusZoom\Controllers\RegistrationController.cs" initialLine="55" containingFunctionPresentation="Method 'Create'" />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Views/Registration/Details.cshtml</url>
           <line>34</line>
           <properties documentPath="C:\UserTEmp\GITHUB\BinusZoom\BinusZoom\Views\Registration\Details.cshtml" initialLine="34" isMultiMethodBreakpoint="true">
             <option name="multiMethodBreakpoint" value="true" />
           </properties>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BinusZoom/Views/Registration/Confirmation.cshtml</url>
+          <line>16</line>
+          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Views\Registration\Confirmation.cshtml" initialLine="16" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
