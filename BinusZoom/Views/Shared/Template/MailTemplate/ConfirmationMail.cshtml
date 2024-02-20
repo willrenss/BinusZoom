@@ -1,0 +1,21 @@
+@model BinusZoom.Models.Registration
+@{
+    ViewData["Title"] = "ConfirmationMail";
+}
+
+<h2>ConfirmationMail</h2>
+<div>
+    <h3>Terima kasih sudah mendaftar</h3>
+    <p>
+        Nama: @Model.NamaLengkap
+    </p>
+    <p>
+        Email: @Model.Email
+    </p>
+    <p>
+        Phone: @Model.Meeting.LinkUrl
+    </p>
+    <p>
+        Meeting date: @Model.Meeting.MeetingDate
+    </p>
+</div>

@@ -1,6 +1,8 @@
 using BinusZoom.Controllers;
 using BinusZoom.Data;
 using BinusZoom.Service;
+using BinusZoom.Service.EmailService;
+using BinusZoom.Template.MailTemplate;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom;
@@ -11,6 +13,7 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        // Initiate DB Service
         var dbDriver = builder.Configuration.GetValue<String>("DBDriver");
         switch (dbDriver)
         {
@@ -30,7 +33,14 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-
+        builder.Services.AddSingleton<CSMailRenderer>();
+        builder.Services.AddSingleton(_ => {
+            MailSettings mailSettings = new();
+            builder.Configuration.GetSection("MailSettings").Bind(mailSettings);
+            return new MailSender(mailSettings);
+        });
+        
+        // Build the App
         var app = builder.Build();
        
         // Configure the HTTP request pipeline.
@@ -51,14 +61,11 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-
-        app.UseAuthorization();
-
+        
+        
         app.MapControllerRoute(
             "default",
             "{controller=Home}/{action=Index}/{id?}").RequireRateLimiting("LimitRequest");
-
-        
         
         app.MapControllers().RequireRateLimiting("LimitRequest");
 

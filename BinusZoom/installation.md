@@ -11,3 +11,10 @@ visit [Visual Studio](https://visualstudio.microsoft.com/downloads/) and downloa
 
 ## How to run migration
 Please read the [migration.md](migration.md) file.
+
+
+## Personal read that helped me through this project
+- [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)
+- [Entity Framework Core Tools](https://docs.microsoft.com/en-us/ef/core/miscellaneous/cli/dotnet)
+- [How to send email in asp.net core](https://mailtrap.io/blog/asp-net-core-send-email/)
+- [How to use Razor Page as Mail Template](https://weblog.west-wind.com/posts/2022/Jun/21/Back-to-Basics-Rendering-Razor-Views-to-String-in-ASPNET-Core)

@@ -2,16 +2,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BinusZoom.Data;
 using BinusZoom.Models;
+using BinusZoom.Service.EmailService;
+using BinusZoom.Template.MailTemplate;
 
 namespace BinusZoom.Controllers
 {
     public class RegistrationController : Controller
     {
         private readonly BinusZoomContext _context;
-
-        public RegistrationController(BinusZoomContext context)
+        private readonly CSMailRenderer _csMailRenderer;
+        private readonly MailSender _mailSender;
+        
+        public RegistrationController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender)
         {
             _context = context;
+            _csMailRenderer = csMailRenderer;
+            _mailSender = mailSender;
         }
 
         // GET: Registration
@@ -63,7 +69,19 @@ namespace BinusZoom.Controllers
                 registration.Meeting = await _context.Meeting.FindAsync(eventId);
                 _context.Add(registration);
                 await _context.SaveChangesAsync();
-                Console.WriteLine("DX: Registration is saved. Redirecting to confirmation page.");
+                
+                String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext, "Template/MailTemplate/ConfirmationMail", registration);
+                MailData mailData = new MailData
+                {
+                    EmailToId = registration.Email,
+                    EmailToName = registration.NamaLengkap,
+                    EmailSubject = "Registration Confirmation",
+                    EmailBody = emailBody
+                };
+
+                _mailSender.SendMail(mailData);
+                
+                    
                 return RedirectToAction(nameof(Confirmation), new { registration_id = registration.Id });
             }
             return View(registration);
