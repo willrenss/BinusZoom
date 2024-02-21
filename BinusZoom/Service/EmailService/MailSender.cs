@@ -5,13 +5,18 @@ namespace BinusZoom.Service.EmailService;
 public class MailSender
 {
     private readonly MailSettings _mailSettings;
-
+    private readonly SmtpClient _smtpClient;
     public MailSender(MailSettings mailSettings)
     {
         _mailSettings = mailSettings;
+        _smtpClient = new SmtpClient(_mailSettings.Server, _mailSettings.Port)
+        {
+            Credentials = null,
+            EnableSsl = false
+        };
     }
 
-    public bool SendMail(MailData mailData)
+    public async Task<bool> SendMail(MailData mailData)
     {
         using (MailMessage message = new MailMessage())
         {
@@ -21,17 +26,12 @@ public class MailSender
             message.Body = mailData.EmailBody;
             message.IsBodyHtml = true;
 
-            using (SmtpClient smtp = new SmtpClient(_mailSettings.Server, _mailSettings.Port))
-            {
-                smtp.Credentials = new System.Net.NetworkCredential(_mailSettings.UserName, _mailSettings.Password);
-                smtp.EnableSsl = true;
-                smtp.Send(message);
-                return true;
-            }
+            await _smtpClient.SendMailAsync(message, CancellationToken.None);
+            return true;
         }
     }
     
-    public bool SendMailWithAttachment(MailData mailData, byte[] attachmentByte)
+    public async Task<bool> SendMailWithAttachment(MailData mailData, byte[] attachmentByte)
     {
         using (MailMessage message = new MailMessage())
         {
@@ -49,7 +49,7 @@ public class MailSender
                 {
                     smtp.Credentials = new System.Net.NetworkCredential(_mailSettings.UserName, _mailSettings.Password);
                     smtp.EnableSsl = true;
-                    smtp.Send(message);
+                    await smtp.SendMailAsync(message, CancellationToken.None);
                     return true;
                 }
             }
