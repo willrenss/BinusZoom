@@ -50,7 +50,8 @@
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                <a asp-action="Participants" asp-route-id="@item.Id">Register List</a>
+                <a asp-action="Participants" asp-route-id="@item.Id">Register List |</a>
+                <a asp-action="SendCertificateToAll" asp-route-meeting_id="@item.Id">Send Certificate</a>
             </td>
         </tr>
     }

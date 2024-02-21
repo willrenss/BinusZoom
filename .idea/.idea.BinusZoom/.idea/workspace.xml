@@ -19,13 +19,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="add Confirmation after register">
+    <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="send bulk certificate">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/BinusZoom.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Shared/Template/MailTemplate/ConfirmationMail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Shared/Template/MailTemplate/ConfirmationMail.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/installation.md" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/installation.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +43,30 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/aspnetcore/3f1acb59718cadf111a0a796681e3d3509bb3381/src/Mvc/Mvc.Core/src/Infrastructure/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/5535e31a712343a63f5d7d796cd874e563e5ac14/src/libraries/System.Net.Mail/src/System/Net/Mail/SmtpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Controllers/MeetingController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Controllers/MeetingController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Controllers/MeetingController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Controllers/MeetingController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Controllers/RegistrationController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Controllers/RegistrationController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Models/Registration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Service/EmailService/MailSender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Service/EmailService/MailSender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Service/EmailService/MailSender.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Shared/Template/MailTemplate/ConfirmationMail.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Shared/Template/MailTemplate/ConfirmationMail.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/user/Documents/GITHUB/BinusZoom/BinusZoom/Views/Shared/Template/MailTemplate/ConfirmationMail.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
@@ -87,7 +103,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
+    "settings.editor.selected.configurable": "IdeDpaMemoryAllocationsPageId",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -197,7 +213,8 @@
       <workItem from="1707472363323" duration="3941000" />
       <workItem from="1707667416526" duration="3216000" />
       <workItem from="1708336493637" duration="4061000" />
-      <workItem from="1708403434498" duration="12516000" />
+      <workItem from="1708403434498" duration="13427000" />
+      <workItem from="1708493254018" duration="12562000" />
     </task>
     <task id="LOCAL-00001" summary="set up mysql">
       <option name="closed" value="true" />
@@ -391,7 +408,39 @@
       <option name="project" value="LOCAL" />
       <updated>1708408250729</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="scaffold emailer">
+      <option name="closed" value="true" />
+      <created>1708432752656</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1708432752656</updated>
+    </task>
+    <task id="LOCAL-00026" summary="scaffold email certificate">
+      <option name="closed" value="true" />
+      <created>1708499951119</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1708499951119</updated>
+    </task>
+    <task id="LOCAL-00027" summary="send confirmation mail async">
+      <option name="closed" value="true" />
+      <created>1708516270334</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708516270334</updated>
+    </task>
+    <task id="LOCAL-00028" summary="make send email async">
+      <option name="closed" value="true" />
+      <created>1708516307755</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1708516307755</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,10 +449,6 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="set up mysql" />
-    <MESSAGE value="add gitginore" />
-    <MESSAGE value="add git ignore lagi" />
-    <MESSAGE value="remove obj" />
     <MESSAGE value="edit gitignore" />
     <MESSAGE value="add debug to gitignore" />
     <MESSAGE value="rapiin" />
@@ -424,72 +469,77 @@
     <MESSAGE value="scaffold meeting's title" />
     <MESSAGE value="remove unused js" />
     <MESSAGE value="add Confirmation after register" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Confirmation after register" />
+    <MESSAGE value="scaffold emailer" />
+    <MESSAGE value="scaffold email certificate" />
+    <MESSAGE value="send confirmation mail async" />
+    <MESSAGE value="make send email async" />
+    <MESSAGE value="send bulk certificate" />
+    <option name="LAST_COMMIT_MESSAGE" value="send bulk certificate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>68</line>
+          <line>75</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="65" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2014" />
+              <option value="2363" />
             </startOffsets>
             <endOffsets>
-              <option value="2036" />
+              <option value="2385" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>69</line>
+          <line>76</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="66" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2049" />
+              <option value="2398" />
             </startOffsets>
             <endOffsets>
-              <option value="2083" />
+              <option value="2432" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>70</line>
+          <line>77</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="67" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2096" />
+              <option value="2445" />
             </startOffsets>
             <endOffsets>
-              <option value="2135" />
+              <option value="2484" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>53</line>
+          <line>60</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="52" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1384" />
+              <option value="1733" />
             </startOffsets>
             <endOffsets>
-              <option value="1409" />
+              <option value="1758" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>51</line>
+          <line>58</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="50" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1338" />
+              <option value="1687" />
             </startOffsets>
             <endOffsets>
-              <option value="1361" />
+              <option value="1710" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
@@ -517,19 +567,6 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/BinusZoom/Service/EmailService/MailSender.cs</url>
-          <line>24</line>
-          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Service\EmailService\MailSender.cs" initialLine="24" containingFunctionPresentation="Method 'SendMail'">
-            <startOffsets>
-              <option value="710" />
-            </startOffsets>
-            <endOffsets>
-              <option value="792" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Service/EmailService/CSMailRenderer.cs</url>
           <line>41</line>
           <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Service\EmailService\CSMailRenderer.cs" initialLine="41" containingFunctionPresentation="Method 'RenderCSHtmlToString'">
@@ -544,16 +581,55 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs</url>
-          <line>81</line>
-          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Controllers\RegistrationController.cs" initialLine="81" containingFunctionPresentation="Method 'Create'">
+          <line>83</line>
+          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Controllers\RegistrationController.cs" initialLine="88" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2884" />
+              <option value="3060" />
             </startOffsets>
             <endOffsets>
-              <option value="2915" />
+              <option value="3061" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BinusZoom/Service/EmailService/MailSender.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Service\EmailService\MailSender.cs" initialLine="28" containingFunctionPresentation="Method 'SendMail'">
+            <startOffsets>
+              <option value="913" />
+            </startOffsets>
+            <endOffsets>
+              <option value="978" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BinusZoom/Service/EmailService/MailSender.cs</url>
+          <line>20</line>
+          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Service\EmailService\MailSender.cs" initialLine="20" containingFunctionPresentation="Method 'SendMail'">
+            <startOffsets>
+              <option value="519" />
+            </startOffsets>
+            <endOffsets>
+              <option value="566" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs</url>
+          <line>80</line>
+          <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Controllers\RegistrationController.cs" initialLine="81" containingFunctionPresentation="Method 'Create'">
+            <startOffsets>
+              <option value="2883" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2920" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -561,6 +637,7 @@
       <configuration name="LaunchSettings">
         <watch expression="ModelState" />
         <watch expression="_mailSender" />
+        <watch expression="_smtpClient" />
       </configuration>
     </watches-manager>
   </component>

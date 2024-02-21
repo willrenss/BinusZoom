@@ -1,6 +1,9 @@
 using BinusZoom.Data;
 using BinusZoom.Models;
 using BinusZoom.Service;
+using BinusZoom.Service.CertificateService;
+using BinusZoom.Service.EmailService;
+using BinusZoom.Template.MailTemplate;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,10 +12,14 @@ namespace BinusZoom.Controllers;
 public class MeetingController : Controller
 {
     private readonly BinusZoomContext _context;
+    private readonly CSMailRenderer _csMailRenderer;
+    private readonly MailSender _mailSender;
 
-    public MeetingController(BinusZoomContext context)
+    public MeetingController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender)
     {
         _context = context;
+        _csMailRenderer = csMailRenderer;
+        _mailSender = mailSender;
     }
 
     // GET: Meeting
@@ -163,6 +170,44 @@ public class MeetingController : Controller
 
         return View(meeting);
     }
+
+    [HttpGet("Meeting/{meeting_id}/SendCertificate")]
+    public async Task<IActionResult> SendCertificateToAll(string meeting_id)
+    {
+        long startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        
+        // get 50 participants
+        var participants = await _context.Registration
+            .Where(reg => reg.Meeting.Id == meeting_id)
+            .Take(50)
+            .ToListAsync();
+        
+        var firstParticipant = participants.First();
+        
+        // send certificate to participants
+        String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext, "Template/MailTemplate/ConfirmationMail", firstParticipant);
+
+        foreach (var participant in participants)
+        {
+            MailData mailData = new MailData
+            {
+                EmailToId = participant.Email,
+                EmailToName = participant.NamaLengkap,
+                EmailSubject = "Registration Confirmation",
+                EmailBody = emailBody
+            };
+         
+            var CertifRender = new CSCertificateRenderer();
+            var pdfBytes = await CertifRender.RenderCSHtmlToPdf(this.ControllerContext, "Template/CertificateTemplate/Certificate", participant);
+            
+            await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+        }
+        
+        long endTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        Console.WriteLine("\nTime taken to send certificate to 50 participants: " + (endTime - startTime) + "ms");
+        return RedirectToAction(nameof(Index));
+    }
+
 
     private bool MeetingExists(string id)
     {
