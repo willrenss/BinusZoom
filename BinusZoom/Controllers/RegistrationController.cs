@@ -78,9 +78,7 @@ namespace BinusZoom.Controllers
                     EmailSubject = "Registration Confirmation",
                     EmailBody = emailBody
                 };
-
-                _mailSender.SendMail(mailData);
-                
+                await _mailSender.SendMail(mailData);
                     
                 return RedirectToAction(nameof(Confirmation), new { registration_id = registration.Id });
             }
