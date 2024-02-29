@@ -62,9 +62,11 @@ public class MeetingController : Controller
             {
                 var fileName = Guid.NewGuid().ToString() + Path.GetExtension(templateFile.FileName);
                 var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/public_imgs");
+                
+                Directory.CreateDirectory(folderPath);
+                
                 var filePath = Path.Combine(folderPath, fileName);
 
-                Directory.CreateDirectory(folderPath);
                 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
