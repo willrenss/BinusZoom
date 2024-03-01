@@ -35,6 +35,13 @@
       <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap-datepicker\Scripts\moment.min.js" />
       <_ContentIncludedByDefault Remove="Template\MailTemplate\ConfirmationMail.cshtml" />
       <_ContentIncludedByDefault Remove="Views\Template\MailTemplate\ConfirmationMail.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\077e30ce-4452-4143-8526-da3a2530e800.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\11efb8a2-da8a-4a34-918f-79ff04c97d65.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\6bb50839-c486-420a-9161-54133a8009c3.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\87db83b3-13cf-416b-806b-c8fe9dfe2c2d.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\a71f8471-61a8-460e-a509-878daa94a58d.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\bd0546b6-b3b8-43a1-8b77-640f1ec8ae29.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\public_imgs\f807f086-c2e6-403b-8704-91e54ab60164.png" />
     </ItemGroup>
 
 </Project>

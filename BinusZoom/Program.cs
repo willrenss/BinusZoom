@@ -2,6 +2,7 @@ using BinusZoom.Controllers;
 using BinusZoom.Data;
 using BinusZoom.Service;
 using BinusZoom.Service.EmailService;
+using BinusZoom.Service.ZoomService.DTO;
 using BinusZoom.Template.MailTemplate;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,18 +41,19 @@ public class Program
             return new MailSender(mailSettings);
         });
         
+        builder.Services.AddSingleton<ZoomAccountList>(_ =>
+        {
+            ZoomAccountList zoomAccountList = new ZoomAccountList();
+            builder.Configuration.GetSection("ZoomConfig").Bind(zoomAccountList);
+            return zoomAccountList;
+        });
+        
         // Build the App
         var app = builder.Build();
        
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
-            // ensure database migrated
-            using (var scope = app.Services.GetRequiredService<BinusZoomContext>())
-            {
-                scope.Database.EnsureCreated();
-            }
-            
             app.UseExceptionHandler("/Home/Error");
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
@@ -70,5 +72,7 @@ public class Program
         app.MapControllers().RequireRateLimiting("LimitRequest");
 
         app.Run();
+
+        app.Services.GetRequiredService<BinusZoomContext>().Database.Migrate();
     }
 }
