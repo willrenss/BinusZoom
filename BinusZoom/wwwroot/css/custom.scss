@@ -1,0 +1,542 @@
+@import "../lib/bootstrap/dist/css/bootstrap.css";
+
+.section-home-1 {
+    background: linear-gradient(360deg, rgba(169, 216, 239, 0.8) 50%, rgb(255, 255, 255) 80%);
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    h1 {
+        font-family: "Lato", sans-serif;
+        color: rgba( 2, 132, 198, 0.8);
+        text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+        font-weight: bolder;
+    }
+
+    p {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+    }
+
+    .img-responsive-section-1 {
+        text-align: right !important;
+    }
+
+    input {
+        border: none;
+        outline: none;
+        height: 30px;
+        width: 100%;
+    }
+
+    input.no-border {
+        border: none;
+        outline: none;
+        padding: 5px 5px;
+    }
+
+    input::placeholder {
+        color: #C3C3C3;
+    }
+
+    input, textarea {
+        caret-color: #EB9C07;
+    }
+
+
+    .search-bar-group {
+        position: absolute;
+        bottom: -28px;
+
+        div {
+            width: 750px;
+            padding: 5px 10px;
+        }
+    }
+}
+
+/*<a asp-action="Create" asp-controller="Registration" asp-route-event_id="@Model?.Id">Register to this event</a> |
+<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>
+
+    
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingDate)
+        </dd>
+        <dt class="col-sm-10">
+            Poster Image
+        </dt>
+        <dd>
+            <img class="img-thumbnail" src="~/@Html.DisplayFor(model => model.PosterPath)" />
+        </dd>
+    </dl>
+*/
+.section-home-2 {
+    width: 100%;
+    min-height: 80vh;
+    max-height: 100%;
+    background-image: url('../images/top-left.png'), url('../images/bottom-right.png');
+    background-size: auto auto;
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+
+    .card-img {
+        max-width: 271px;
+        min-width: 271px;
+        position: relative;
+
+        .card-content {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+
+            img {
+                width: 100%;
+                height: 100%;
+                
+            }
+
+            .card-content-hover {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 10px;
+                opacity: 0;
+                transform: translateY(0);
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+                div {
+                    height: 100%;
+                }
+            }
+
+            &:hover .card-content-hover {
+                opacity: 1;
+                transform: translateY(-100%);
+            }
+        }
+
+        .card-date {
+            background: rgb(255, 255, 255, 0.7);
+            position: absolute;
+            border-radius: 10px;
+            top: 10px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+
+            .date {
+                display: flex;
+                padding: 10px 5px;
+                flex-direction: column;
+                height: 100%;
+
+                p {
+                    font-size: 12px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+.details-page {
+    background: linear-gradient(360deg, rgba(169, 216, 239, 0.6) 50%, rgb(255, 255, 255) 80%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-details-wrap {
+        width: 60%;
+        position: relative;
+
+
+
+        .card-details {
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+
+            .background-detail {
+                min-height: 250px;
+                background-image: url('../images/detail_images.png');
+                background-size: 600px;
+                background-repeat: no-repeat;
+                background-position: bottom right;
+            }
+
+            img {
+                flex: 1;
+                width: 100%;
+                height: 100%;                
+                object-fit: cover;
+            }
+
+
+
+            .posisiton-description {
+                align-items: center;
+
+                .title-details {
+                    color: #4E4E4E;
+                    font-style: italic;
+                    font-family: "Lato", sans-serif;
+                    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+                    font-weight: bolder;
+                    font-size: 40px;
+                    margin: 0;
+                }
+
+                p:nth-child(2) {
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 0;
+                }
+
+                .date-top {
+                    background-color: #B82F2F;
+                    padding: 5px 10px;
+                    opacity: 0.8;
+                    position: absolute;
+                    border-bottom-left-radius: 15px;
+                    border-top-right-radius: 10px;
+                    right: -11px;
+                    top: 0;
+
+                    .date-font {
+                        color: white;
+                        font-style: italic;
+                        font-family: "Roboto", sans-serif;
+                        font-weight: bolder;
+                        font-size: 20px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.register-page {
+    background: linear-gradient(360deg, rgba(169, 216, 239, 0.6) 50%, rgb(255, 255, 255) 80%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   
+
+    .card-details-wrap {
+        width: 80%;
+        position: relative;
+
+
+        .card-details {
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+
+            .background-detail {
+                min-height: 250px;
+                background-image: url('../images/detail_images.png');
+                background-size: 600px;
+                background-repeat: no-repeat;
+                background-position: bottom right;
+            }
+
+            img {
+                flex: 1;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+
+
+            .posisiton-description {
+                align-items: center;
+
+                div:first-child {
+                    min-width: 100%;
+                }
+
+                .title-details {
+                    color: #4E4E4E;
+                    font-style: italic;
+                    font-family: "Lato", sans-serif;
+                    text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+                    font-weight: bolder;
+                    font-size: 40px;
+                    margin: 0;
+                }
+
+                p:nth-child(2) {
+                    font-family: "Roboto", sans-serif;
+                    font-weight: 400;
+                    font-size: 14px;
+                    margin: 0;
+                }
+
+                .date-top {
+                    background-color: #B82F2F;
+                    padding: 5px 10px;
+                    opacity: 0.8;
+                    position: absolute;
+                    border-bottom-left-radius: 15px;
+                    border-top-right-radius: 10px;
+                    right: -11px;
+                    top: 0;
+
+                    .date-font {
+                        color: white;
+                        font-style: italic;
+                        font-family: "Roboto", sans-serif;
+                        font-weight: bolder;
+                        font-size: 20px;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.animation-scale {
+    transition: transform 0.3s ease-out;
+}
+
+
+.slide-right {           
+    animation: slideRight 0.3s linear;
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-400px)
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+
+.slide-left {
+    animation: slideLeft 0.3s linear;
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(400px)
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@media (max-width: 990px) {
+    .section-home-1 {
+        height: 100%;
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .img-responsive-section-1 {
+            text-align: center !important;
+            transition: text-align 1.5s ease;
+        }
+    }
+
+    .footer-3{
+        align-items: start !important;
+    }
+
+    .posisiton-description {
+        align-items: start;
+    }
+}
+
+
+@media (max-width: 1205px) {
+
+    .details-page {
+        .card-details-wrap {
+            width: 70%;
+        }
+    }
+
+    .register-page {
+        .card-details-wrap {
+            width: 70%;
+        }
+    }
+}
+
+$colors: (primary,secondary);
+@each $color in $colors {
+    .#{$color}-filled-btn {
+        background: var(--wl-#{$color}-btn);
+        border: 1px solid var(--wl-#{$color}-btn-border);
+        font-size: 14px;
+        color: white;
+        font-weight: bold;
+
+        * {
+            color: white;
+            font-weight: bold;
+        }
+
+        text-decoration: none;
+        white-space: nowrap;
+        border-radius: 10px;
+        width: 142px;
+        font-weight: 400;
+        padding: 2px 25px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        &:active {
+            background: var(--wl-#{$color}-hover);
+            border: 1px solid var(--wl-#{$color}-hover);
+            color: white;
+        }
+    }
+ }
+
+
+    $heightValue: (14,18,26,28,30,32,36,40,41,45, 48,50,56,64,75,80,84,90,100);
+
+    @each $ht in $heightValue {
+        .height-#{$ht} {
+            height: #{$ht}px !important;
+        }
+
+        .ht-#{$ht} {
+            max-height: #{$ht}px !important;
+            min-height: #{$ht}px !important;
+        }
+
+        .ht-#{$ht}-max {
+            max-height: #{$ht}px;
+        }
+
+        .ht-#{$ht}-min {
+            min-height: #{$ht}px !important;
+        }
+
+        .ht-#{$ht}-force {
+            min-height: #{$ht}px;
+            max-height: #{$ht}px;
+        }
+    }
+
+
+.footer {
+    background-color: #2E2E27;
+
+    .footer-1 {
+        p:first-child {
+            font-family: "Bebas Neue", sans-serif;
+            color: white;
+            font-size: 48px;
+            line-height: 1;
+            margin: 0;
+        }
+
+        p:nth-child(2) {
+            font-family: "Roboto", sans-serif;
+            color: white;
+            font-weight: 400;
+            font-size: 21px;
+            margin: 0;
+        }
+    }
+
+    .footer-2 {
+        p:first-child {
+            font-family: "Lato", sans-serif;
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+            margin: 0px;
+        }
+
+        p:nth-child(2) {
+            font-family: "Roboto", sans-serif;
+            color: white;
+            font-size: 11px;
+            margin: 0px;
+        }
+
+        p:nth-child(3) {
+            font-family: "Lato", sans-serif;
+            color: white;
+            font-weight: bolder;
+            font-size: 20px;
+            margin: 0px;
+        }
+
+        p:nth-child(4) {
+            font-family: "Roboto", sans-serif;
+            color: white;
+            font-size: 11px;
+            margin: 0px;
+        }
+    }
+
+
+    .footer-3 {
+        p:first-child {
+            font-family: "Lato", sans-serif;
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+            margin: 0px;
+        }
+
+        p:nth-child(2) {
+            font-family: "Bebas Neue", sans-serif;
+            color: white;
+            font-size: 48px;
+            margin:0px;
+            line-height: 1;
+            
+        }
+    }
+
+    .footer-4 {
+        p:first-child {
+            font-family: "Roboto", sans-serif;
+            color: white;
+            font-size: 11px;
+            margin: 0px;
+        }
+    }
+}

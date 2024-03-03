@@ -1,37 +1,52 @@
 @model BinusZoom.Models.Registration
-
 @{
     ViewData["Title"] = "Create";
+    var meeting = ViewData["Meeting"] as BinusZoom.Models.Meeting;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-
-<h4>Registration</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="NIM" class="control-label"></label>
-                <input asp-for="NIM" class="form-control" />
-                <span asp-validation-for="NIM" class="text-danger"></span>
+<div class="register-page">
+    <div class=" container p-0 d-flex justify-content-center my-3">
+        <div class="card-details-wrap">
+            <div class="bg-white card-details row shadow-lg ">
+                <div class="col-lg-7  d-flex px-3 background-detail posisiton-description">
+                    <div class="px-2 py-3 slide-left">
+                        <p class="title-details text-center text-md-start">@meeting.Title</p>
+                        <form class="" asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group my-4">
+                                <label asp-for="NamaLengkap" class="control-label">Full Name</label>
+                                <input asp-for="NamaLengkap" class="form-control" placeholder="Full Name" />
+                                <span asp-validation-for="NamaLengkap" class="text-danger"></span>
+                            </div>
+                            <div class="form-group my-4">
+                                <label asp-for="NIM" class="control-label">NIM</label>
+                                <input asp-for="NIM" class="form-control" placeholder="NIM" />
+                                <span asp-validation-for="NIM" class="text-danger"></span>
+                            </div>
+                            <div class="form-group my-4">
+                                <label asp-for="Email" class="control-label">Email</label>
+                                <input asp-for="Email" class="form-control" placeholder="Email" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group d-flex justify-content-center">
+                                <input type="submit"  value="Join Event" class="secondary-filled-btn mt-3"/> 
+                            </div>
+                        </form>
+                    </div>
+                    <div class="date-top">
+                        <p class="date-font">
+                            @String.Format("{0:dd MMM yyyy}", @meeting.MeetingDate)
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-5  p-0 order-first order-lg-last slide-right">
+                    <a asp-controller="Meeting" asp-action="Details" asp-route-id="@meeting.Id">
+                        <img class="img-fluid" src="@Url.Content("~")/public_imgs/@meeting.PosterPath" />
+                    </a>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NamaLengkap" class="control-label"></label>
-                <input asp-for="NamaLengkap" class="form-control" />
-                <span asp-validation-for="NamaLengkap" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

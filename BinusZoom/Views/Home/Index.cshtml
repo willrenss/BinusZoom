@@ -1,8 +1,59 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Meeting>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Home</h1>
-    <p>test lagi dong <a href="https://learn.microsoft.com/aspnet/core">loh kok bsa ga bsa Web apps with ASP.NET Core</a>.</p>
+    @{
+ViewData["Title"] = "Home Page";
+    }
+
+<div class="section-home-1">
+    <div class="container d-flex flex-column justify-content-center py-3">
+        <div class="row flex-lg-row flex-row-reverse justify-content-center align-items-center  animation-scale  overflow-hidden">
+            <div class="col-lg-7 slide-right">
+                <h1 class="display-4 ms-auto">Binus Zoom</h1>
+                <p class=" ms-auto">
+                    Binus Zoom continues to be the forefront solution for students seeking a rich campus experience through participation in various events and activities. 
+                    This application is specially designed to provide convenience in registration and navigation through a diverse range of activities organized by the campus. 
+                    Binus Zoom remains a loyal partner for students in accessing diverse opportunities and campus experiences. 
+                    With continuous development and updates, Binus Zoom reaffirms its commitment to providing the best experience for the entire academic community at Binus.
+                </p>
+            </div>
+            <div class="col-lg-5 order-first order-lg-last slide-left img-responsive-section-1">
+                <img class="img-fluid" width="500" src="~/images/calendar.png" alt="Calendar Image" />
+            </div>
+        </div>
+    </div>
+    <div class="d-flex container justify-content-center ht-48 search-bar-group">
+        <div class="bg-white rounded-pill d-flex justify-content-between align-items-center shadow">
+            <img width="28" height="28" src="~/images/search.png" />
+            <input class="ms-1" placeholder="Search Event" />
+            <button type="button" class="secondary-filled-btn">See More</button>
+        </div>
+    </div>
 </div>
+<div class="section-home-2 py-5">
+    <div class="container">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-5 g-5 justify-content-center">
+                @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
+        {
+                <div class="card-img @(index % 2 == 0 ? "slide-left" : "slide-right")">
+                    <div class="card-content">
+                        <img class="img-fluid" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)" />
+                        <div class="card-content-hover">
+                            <div class="d-flex flex-column justify-content-center align-items-center">
+                                <a asp-controller="Meeting" asp-action="Details" asp-route-id="@item.Id" class="secondary-filled-btn">Detail Event</a>
+                                <a asp-action="Create" asp-controller="Registration" asp-route-event_id="@item.Id" class="primary-filled-btn mt-2">Register Event</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-date">
+                        <div class="justify-content-center align-items-center date">
+                            <p> @item.MeetingDate.ToString("dd") </p>
+                            <p> @item.MeetingDate.ToString("MMM") </p>
+                        </div>
+                    </div>
+                </div>
+        }
+            </div>
+        </div>
+    </div>
+ </div>

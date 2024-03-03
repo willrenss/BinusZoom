@@ -1,0 +1,869 @@
+@import "../lib/bootstrap/dist/css/bootstrap.css";
+.section-home-1 {
+  background: linear-gradient(360deg, rgba(169, 216, 239, 0.8) 50%, rgb(255, 255, 255) 80%);
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.section-home-1 h1 {
+  font-family: "Lato", sans-serif;
+  color: rgba(2, 132, 198, 0.8);
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+  font-weight: bolder;
+}
+.section-home-1 p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}
+.section-home-1 .img-responsive-section-1 {
+  text-align: right !important;
+}
+.section-home-1 input {
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 100%;
+}
+.section-home-1 input.no-border {
+  border: none;
+  outline: none;
+  padding: 5px 5px;
+}
+.section-home-1 input::placeholder {
+  color: #C3C3C3;
+}
+.section-home-1 input, .section-home-1 textarea {
+  caret-color: #EB9C07;
+}
+.section-home-1 .search-bar-group {
+  position: absolute;
+  bottom: -28px;
+}
+.section-home-1 .search-bar-group div {
+  width: 750px;
+  padding: 5px 10px;
+}
+
+/*<a asp-action="Create" asp-controller="Registration" asp-route-event_id="@Model?.Id">Register to this event</a> |
+<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+<a asp-action="Index">Back to List</a>
+
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MeetingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MeetingDate)
+        </dd>
+        <dt class="col-sm-10">
+            Poster Image
+        </dt>
+        <dd>
+            <img class="img-thumbnail" src="~/@Html.DisplayFor(model => model.PosterPath)" />
+        </dd>
+    </dl>
+*/
+.section-home-2 {
+  width: 100%;
+  min-height: 80vh;
+  max-height: 100%;
+  background-image: url("../images/top-left.png"), url("../images/bottom-right.png");
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  background-position: top left, bottom right;
+}
+.section-home-2 .card-img {
+  max-width: 271px;
+  min-width: 271px;
+  position: relative;
+}
+.section-home-2 .card-img .card-content {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+}
+.section-home-2 .card-img .card-content img {
+  width: 100%;
+  height: 100%;
+}
+.section-home-2 .card-img .card-content .card-content-hover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(0);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.section-home-2 .card-img .card-content .card-content-hover div {
+  height: 100%;
+}
+.section-home-2 .card-img .card-content:hover .card-content-hover {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+.section-home-2 .card-img .card-date {
+  background: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  border-radius: 10px;
+  top: 10px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+}
+.section-home-2 .card-img .card-date .date {
+  display: flex;
+  padding: 10px 5px;
+  flex-direction: column;
+  height: 100%;
+}
+.section-home-2 .card-img .card-date .date p {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.details-page {
+  background: linear-gradient(360deg, rgba(169, 216, 239, 0.6) 50%, rgb(255, 255, 255) 80%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.details-page .card-details-wrap {
+  width: 60%;
+  position: relative;
+}
+.details-page .card-details-wrap .card-details {
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+.details-page .card-details-wrap .card-details .background-detail {
+  min-height: 250px;
+  background-image: url("../images/detail_images.png");
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.details-page .card-details-wrap .card-details img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.details-page .card-details-wrap .card-details .posisiton-description {
+  align-items: center;
+}
+.details-page .card-details-wrap .card-details .posisiton-description .title-details {
+  color: #4E4E4E;
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+  font-weight: bolder;
+  font-size: 40px;
+  margin: 0;
+}
+.details-page .card-details-wrap .card-details .posisiton-description p:nth-child(2) {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+}
+.details-page .card-details-wrap .card-details .posisiton-description .date-top {
+  background-color: #B82F2F;
+  padding: 5px 10px;
+  opacity: 0.8;
+  position: absolute;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 10px;
+  right: -11px;
+  top: 0;
+}
+.details-page .card-details-wrap .card-details .posisiton-description .date-top .date-font {
+  color: white;
+  font-style: italic;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 0;
+}
+
+.register-page {
+  background: linear-gradient(360deg, rgba(169, 216, 239, 0.6) 50%, rgb(255, 255, 255) 80%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register-page .card-details-wrap {
+  width: 80%;
+  position: relative;
+}
+.register-page .card-details-wrap .card-details {
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+.register-page .card-details-wrap .card-details .background-detail {
+  min-height: 250px;
+  background-image: url("../images/detail_images.png");
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+.register-page .card-details-wrap .card-details img {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.register-page .card-details-wrap .card-details .posisiton-description {
+  align-items: center;
+}
+.register-page .card-details-wrap .card-details .posisiton-description div:first-child {
+  min-width: 100%;
+}
+.register-page .card-details-wrap .card-details .posisiton-description .title-details {
+  color: #4E4E4E;
+  font-style: italic;
+  font-family: "Lato", sans-serif;
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+  font-weight: bolder;
+  font-size: 40px;
+  margin: 0;
+}
+.register-page .card-details-wrap .card-details .posisiton-description p:nth-child(2) {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0;
+}
+.register-page .card-details-wrap .card-details .posisiton-description .date-top {
+  background-color: #B82F2F;
+  padding: 5px 10px;
+  opacity: 0.8;
+  position: absolute;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 10px;
+  right: -11px;
+  top: 0;
+}
+.register-page .card-details-wrap .card-details .posisiton-description .date-top .date-font {
+  color: white;
+  font-style: italic;
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 0;
+}
+
+.animation-scale {
+  transition: transform 0.3s ease-out;
+}
+
+.slide-right {
+  animation: slideRight 0.3s linear;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.slide-left {
+  animation: slideLeft 0.3s linear;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(400px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@media (max-width: 990px) {
+  .section-home-1 {
+    height: 100%;
+  }
+  .section-home-1 h1 {
+    text-align: center;
+  }
+  .section-home-1 p {
+    text-align: justify;
+  }
+  .section-home-1 .img-responsive-section-1 {
+    text-align: center !important;
+    transition: text-align 1.5s ease;
+  }
+  .footer-3 {
+    align-items: start !important;
+  }
+  .posisiton-description {
+    align-items: start;
+  }
+}
+@media (max-width: 1205px) {
+  .details-page .card-details-wrap {
+    width: 70%;
+  }
+  .register-page .card-details-wrap {
+    width: 70%;
+  }
+}
+.primary-filled-btn {
+  background: var(--wl-primary-btn);
+  border: 1px solid var(--wl-primary-btn-border);
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 10px;
+  width: 142px;
+  font-weight: 400;
+  padding: 2px 25px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.primary-filled-btn * {
+  color: white;
+  font-weight: bold;
+}
+.primary-filled-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+.primary-filled-btn:active {
+  background: var(--wl-primary-hover);
+  border: 1px solid var(--wl-primary-hover);
+  color: white;
+}
+
+.secondary-filled-btn {
+  background: var(--wl-secondary-btn);
+  border: 1px solid var(--wl-secondary-btn-border);
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 10px;
+  width: 142px;
+  font-weight: 400;
+  padding: 2px 25px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.secondary-filled-btn * {
+  color: white;
+  font-weight: bold;
+}
+.secondary-filled-btn:hover {
+  opacity: 0.9;
+  color: white;
+}
+.secondary-filled-btn:active {
+  background: var(--wl-secondary-hover);
+  border: 1px solid var(--wl-secondary-hover);
+  color: white;
+}
+
+.height-14 {
+  height: 14px !important;
+}
+
+.ht-14 {
+  max-height: 14px !important;
+  min-height: 14px !important;
+}
+
+.ht-14-max {
+  max-height: 14px;
+}
+
+.ht-14-min {
+  min-height: 14px !important;
+}
+
+.ht-14-force {
+  min-height: 14px;
+  max-height: 14px;
+}
+
+.height-18 {
+  height: 18px !important;
+}
+
+.ht-18 {
+  max-height: 18px !important;
+  min-height: 18px !important;
+}
+
+.ht-18-max {
+  max-height: 18px;
+}
+
+.ht-18-min {
+  min-height: 18px !important;
+}
+
+.ht-18-force {
+  min-height: 18px;
+  max-height: 18px;
+}
+
+.height-26 {
+  height: 26px !important;
+}
+
+.ht-26 {
+  max-height: 26px !important;
+  min-height: 26px !important;
+}
+
+.ht-26-max {
+  max-height: 26px;
+}
+
+.ht-26-min {
+  min-height: 26px !important;
+}
+
+.ht-26-force {
+  min-height: 26px;
+  max-height: 26px;
+}
+
+.height-28 {
+  height: 28px !important;
+}
+
+.ht-28 {
+  max-height: 28px !important;
+  min-height: 28px !important;
+}
+
+.ht-28-max {
+  max-height: 28px;
+}
+
+.ht-28-min {
+  min-height: 28px !important;
+}
+
+.ht-28-force {
+  min-height: 28px;
+  max-height: 28px;
+}
+
+.height-30 {
+  height: 30px !important;
+}
+
+.ht-30 {
+  max-height: 30px !important;
+  min-height: 30px !important;
+}
+
+.ht-30-max {
+  max-height: 30px;
+}
+
+.ht-30-min {
+  min-height: 30px !important;
+}
+
+.ht-30-force {
+  min-height: 30px;
+  max-height: 30px;
+}
+
+.height-32 {
+  height: 32px !important;
+}
+
+.ht-32 {
+  max-height: 32px !important;
+  min-height: 32px !important;
+}
+
+.ht-32-max {
+  max-height: 32px;
+}
+
+.ht-32-min {
+  min-height: 32px !important;
+}
+
+.ht-32-force {
+  min-height: 32px;
+  max-height: 32px;
+}
+
+.height-36 {
+  height: 36px !important;
+}
+
+.ht-36 {
+  max-height: 36px !important;
+  min-height: 36px !important;
+}
+
+.ht-36-max {
+  max-height: 36px;
+}
+
+.ht-36-min {
+  min-height: 36px !important;
+}
+
+.ht-36-force {
+  min-height: 36px;
+  max-height: 36px;
+}
+
+.height-40 {
+  height: 40px !important;
+}
+
+.ht-40 {
+  max-height: 40px !important;
+  min-height: 40px !important;
+}
+
+.ht-40-max {
+  max-height: 40px;
+}
+
+.ht-40-min {
+  min-height: 40px !important;
+}
+
+.ht-40-force {
+  min-height: 40px;
+  max-height: 40px;
+}
+
+.height-41 {
+  height: 41px !important;
+}
+
+.ht-41 {
+  max-height: 41px !important;
+  min-height: 41px !important;
+}
+
+.ht-41-max {
+  max-height: 41px;
+}
+
+.ht-41-min {
+  min-height: 41px !important;
+}
+
+.ht-41-force {
+  min-height: 41px;
+  max-height: 41px;
+}
+
+.height-45 {
+  height: 45px !important;
+}
+
+.ht-45 {
+  max-height: 45px !important;
+  min-height: 45px !important;
+}
+
+.ht-45-max {
+  max-height: 45px;
+}
+
+.ht-45-min {
+  min-height: 45px !important;
+}
+
+.ht-45-force {
+  min-height: 45px;
+  max-height: 45px;
+}
+
+.height-48 {
+  height: 48px !important;
+}
+
+.ht-48 {
+  max-height: 48px !important;
+  min-height: 48px !important;
+}
+
+.ht-48-max {
+  max-height: 48px;
+}
+
+.ht-48-min {
+  min-height: 48px !important;
+}
+
+.ht-48-force {
+  min-height: 48px;
+  max-height: 48px;
+}
+
+.height-50 {
+  height: 50px !important;
+}
+
+.ht-50 {
+  max-height: 50px !important;
+  min-height: 50px !important;
+}
+
+.ht-50-max {
+  max-height: 50px;
+}
+
+.ht-50-min {
+  min-height: 50px !important;
+}
+
+.ht-50-force {
+  min-height: 50px;
+  max-height: 50px;
+}
+
+.height-56 {
+  height: 56px !important;
+}
+
+.ht-56 {
+  max-height: 56px !important;
+  min-height: 56px !important;
+}
+
+.ht-56-max {
+  max-height: 56px;
+}
+
+.ht-56-min {
+  min-height: 56px !important;
+}
+
+.ht-56-force {
+  min-height: 56px;
+  max-height: 56px;
+}
+
+.height-64 {
+  height: 64px !important;
+}
+
+.ht-64 {
+  max-height: 64px !important;
+  min-height: 64px !important;
+}
+
+.ht-64-max {
+  max-height: 64px;
+}
+
+.ht-64-min {
+  min-height: 64px !important;
+}
+
+.ht-64-force {
+  min-height: 64px;
+  max-height: 64px;
+}
+
+.height-75 {
+  height: 75px !important;
+}
+
+.ht-75 {
+  max-height: 75px !important;
+  min-height: 75px !important;
+}
+
+.ht-75-max {
+  max-height: 75px;
+}
+
+.ht-75-min {
+  min-height: 75px !important;
+}
+
+.ht-75-force {
+  min-height: 75px;
+  max-height: 75px;
+}
+
+.height-80 {
+  height: 80px !important;
+}
+
+.ht-80 {
+  max-height: 80px !important;
+  min-height: 80px !important;
+}
+
+.ht-80-max {
+  max-height: 80px;
+}
+
+.ht-80-min {
+  min-height: 80px !important;
+}
+
+.ht-80-force {
+  min-height: 80px;
+  max-height: 80px;
+}
+
+.height-84 {
+  height: 84px !important;
+}
+
+.ht-84 {
+  max-height: 84px !important;
+  min-height: 84px !important;
+}
+
+.ht-84-max {
+  max-height: 84px;
+}
+
+.ht-84-min {
+  min-height: 84px !important;
+}
+
+.ht-84-force {
+  min-height: 84px;
+  max-height: 84px;
+}
+
+.height-90 {
+  height: 90px !important;
+}
+
+.ht-90 {
+  max-height: 90px !important;
+  min-height: 90px !important;
+}
+
+.ht-90-max {
+  max-height: 90px;
+}
+
+.ht-90-min {
+  min-height: 90px !important;
+}
+
+.ht-90-force {
+  min-height: 90px;
+  max-height: 90px;
+}
+
+.height-100 {
+  height: 100px !important;
+}
+
+.ht-100 {
+  max-height: 100px !important;
+  min-height: 100px !important;
+}
+
+.ht-100-max {
+  max-height: 100px;
+}
+
+.ht-100-min {
+  min-height: 100px !important;
+}
+
+.ht-100-force {
+  min-height: 100px;
+  max-height: 100px;
+}
+
+.footer {
+  background-color: #2E2E27;
+}
+.footer .footer-1 p:first-child {
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  font-size: 48px;
+  line-height: 1;
+  margin: 0;
+}
+.footer .footer-1 p:nth-child(2) {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 21px;
+  margin: 0;
+}
+.footer .footer-2 p:first-child {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0px;
+}
+.footer .footer-2 p:nth-child(2) {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 11px;
+  margin: 0px;
+}
+.footer .footer-2 p:nth-child(3) {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 0px;
+}
+.footer .footer-2 p:nth-child(4) {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 11px;
+  margin: 0px;
+}
+.footer .footer-3 p:first-child {
+  font-family: "Lato", sans-serif;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0px;
+}
+.footer .footer-3 p:nth-child(2) {
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  font-size: 48px;
+  margin: 0px;
+  line-height: 1;
+}
+.footer .footer-4 p:first-child {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  font-size: 11px;
+  margin: 0px;
+}
+
+/*# sourceMappingURL=custom.css.map */
