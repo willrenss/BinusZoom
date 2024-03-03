@@ -54,6 +54,7 @@ namespace BinusZoom.Controllers
             {
                 return NotFound();
             }
+            ViewData["Meeting"] = meeting;
             return View();
         }
 

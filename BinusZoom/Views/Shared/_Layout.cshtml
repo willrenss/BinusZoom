@@ -1,45 +1,108 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BinusZoom</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
-    <link rel="stylesheet" href="~/BinusZoom.styles.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BinusZoom</a>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white">
+        <div class="container-fluid justify-content-between px-5 ">
+            <a class="navbar-brand fw-bolder text-secondary text-uppercase fs-3" asp-area="" asp-controller="Home" asp-action="Index">BinusZoom</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+            <div class="navbar-collapse collapse d-sm-inline-flex">
+                <ul class="navbar-nav flex-grow-1 justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+                        <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Index") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Privacy") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Contact") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<div class="container">
-    <main role="main" class="pb-3">
+<div class="">
+    <main role="main" class="">
         @RenderBody()
     </main>
 </div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - BinusZoom - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+<footer class="d-flex flex-column footer">
+    <div class="container my-4 d-flex">
+        <div class="row container-fluid">
+            <div class="col-md-4">
+                <div class="d-flex flex-column footer-1 justify-content-center">
+                    <p>
+                        BINUS UNIVERSITY
+                    </p>
+                    <p>
+                        BINUS HIGHER EDUCATION
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex flex-column footer-2 justify-content-center">
+                    <div class="mb-3">
+                        <p>Location</p>
+                        <div class="d-flex flex-row">
+                            <img width="14" height="14" class="me-2" src="~/images/location.png" />
+                            <p>
+                                Jl. K. H. Syahdan No. 9, Kemanggisan, Palmerah Jakarta 11480 Indonesia
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <p>Contact Us</p>
+                        <div class="d-flex flex-row">
+                            <img width="14" height="14" class="me-2" src="~/images/phone.png" />
+                            <p>
+                                Phone +62 21 534 5830, +62 21 535 0660 Fax +62 21 530 0244
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex flex-column footer-3 justify-content-center align-items-end">
+                    <p>
+                        GET CONNECTED ON
+                    </p>
+                    <p>
+                        SOCIAL MEDIA
+                    </p>
+                    <div class="d-flex">
+                        <img width="26" height="26" class="me-3" src="~/images/facebook.png" />
+                        <img width="26" height="26" class="mx-3" src="~/images/instagram.png" />
+                        <img width="26" height="26" class="mx-3" src="~/images/whatsapp.png" />
+                        <img width="26" height="26" class="ms-3" src="~/images/youtube.png" />
+                    </div>
+                </div>               
+            </div>
+        </div>
     </div>
+    <div class="container-fluid">
+        <div class="my-2 border-top opacity-50"></div>
+        <div class="container d-flex justify-content-center text-white footer-4 my-2">
+            <p>Copyright © BINUS Higher Education. All rights reserved</p>
+        </div>
+    </div>
+
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

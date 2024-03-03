@@ -5,28 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Meeting</h4>
-    <hr/>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MeetingDate)
-        </dd>
-        <dt class="col-sm-10">
-            Poster Image
-        </dt>
-        <dd >
-            <img class="img-thumbnail" src="~/@Html.DisplayFor(model => model.PosterPath)"/>
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Create" asp-controller="Registration" asp-route-event_id="@Model?.Id">Register to this event</a> | 
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="details-page">
+    <div class=" p-0 d-flex justify-content-center my-3">
+        <div class="card-details-wrap">
+            <div class="bg-white card-details row shadow-lg ">
+                <div class="col-lg-5  p-0 slide-right">
+                    <img class="img-fluid" src="@Url.Content("~")/public_imgs/@Html.DisplayFor(model => model.PosterPath)" />
+                </div>
+                <div class="col-lg-7  d-flex px-3 background-detail posisiton-description slide-left">
+                    <div class="px-2 py-3">
+                        <p class="title-details text-center text-md-start">@Html.DisplayFor(model => model.Title)</p>
+                        <p class="font-size-description text-center text-md-start">
+                            Binus Zoom continues to be the forefront solution for students seeking a rich campus experience through participation in various events and activities.
+                            This application is specially designed to provide convenience in registration and navigation through a diverse range of activities organized by the campus.
+                            Binus Zoom remains a loyal partner for students in accessing diverse opportunities and campus experiences.
+                            With continuous development and updates, Binus Zoom reaffirms its commitment to providing the best experience for the entire academic community at Binus.
+                        </p>
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center">
+                            <a asp-action="Create" asp-controller="Registration" asp-route-event_id="@Model.Id" class="secondary-filled-btn mt-2 mx-lg-0 me-lg-2 mx-2">Register Event</a>
+                            <a asp-action="Edit" asp-controller="Meeting" asp-route-id="@Model.Id" class="primary-filled-btn mt-2 mx-">Edit Event</a>
+                        </div>
+                    </div>
+                    <div class="date-top">
+                        <p class="date-font">
+                            @String.Format("{0:dd MMM yyyy}", Model.MeetingDate)
+                        </p>
+                    </div>
+                </div>
+                
+            </div>           
+        </div>
+    </div>
 </div>
