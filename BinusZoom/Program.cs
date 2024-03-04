@@ -2,6 +2,7 @@ using BinusZoom.Controllers;
 using BinusZoom.Data;
 using BinusZoom.Service;
 using BinusZoom.Service.EmailService;
+using BinusZoom.Service.ZoomService;
 using BinusZoom.Service.ZoomService.DTO;
 using BinusZoom.Template.MailTemplate;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +48,8 @@ public class Program
             builder.Configuration.GetSection("ZoomConfig").Bind(zoomAccountList);
             return zoomAccountList;
         });
+
+        builder.Services.AddScoped<ZoomMeetingService>();
         
         // Build the App
         var app = builder.Build();

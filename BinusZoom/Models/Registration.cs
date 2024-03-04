@@ -26,5 +26,5 @@ public class Registration
     public String NamaLengkap { get; set; }
     
     [ValidateNever]
-    public Meeting? Meeting { get; set; }
+    public Meeting Meeting { get; set; }
 }

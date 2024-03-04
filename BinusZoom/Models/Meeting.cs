@@ -1,9 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BinusZoom.Controllers;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
-using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom.Models;
 
@@ -34,6 +31,9 @@ public class Meeting
     [ValidateNever] // exclude from modelstate.isvalid when create
     public string PosterPath { get; set; }
 
+    [ValidateNever]
+    public string CertificatePath { get; set; }
+    
     [ValidateNever] // exclude from modelstate.isvalid when create
     public ICollection<Registration> Registrations { get; set; } = default!;
 }

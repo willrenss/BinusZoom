@@ -3,6 +3,7 @@ using BinusZoom.Models;
 using BinusZoom.Service;
 using BinusZoom.Service.CertificateService;
 using BinusZoom.Service.EmailService;
+using BinusZoom.Service.ZoomService;
 using BinusZoom.Template.MailTemplate;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,12 +15,27 @@ public class MeetingController : Controller
     private readonly BinusZoomContext _context;
     private readonly CSMailRenderer _csMailRenderer;
     private readonly MailSender _mailSender;
+    private readonly ZoomMeetingService _zoomMeetingService;
 
-    public MeetingController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender)
+    public MeetingController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender, ZoomMeetingService zoomMeetingService)
     {
         _context = context;
         _csMailRenderer = csMailRenderer;
         _mailSender = mailSender;
+        _zoomMeetingService = zoomMeetingService;
+    }
+    
+    public async Task<JsonResult> Trigger()
+    {
+        await _zoomMeetingService.GetParticipantList("0");
+        return Json(_zoomMeetingService.ZoomAccountList.accounts);
+    }
+    
+    // return create action that return json
+    public async Task<JsonResult> Token()
+    {
+        
+        return Json(_zoomMeetingService.ZoomAccountList.accounts);
     }
 
     // GET: Meeting
