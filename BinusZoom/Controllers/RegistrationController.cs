@@ -70,16 +70,25 @@ namespace BinusZoom.Controllers
                 registration.Meeting = await _context.Meeting.FindAsync(eventId);
                 _context.Add(registration);
                 await _context.SaveChangesAsync();
-                
-                String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext, "Template/MailTemplate/ConfirmationMail", registration);
-                MailData mailData = new MailData
+
+                try
                 {
-                    EmailToId = registration.Email,
-                    EmailToName = registration.NamaLengkap,
-                    EmailSubject = "Registration Confirmation",
-                    EmailBody = emailBody
-                };
-                await _mailSender.SendMail(mailData);
+                    String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext,
+                        "Template/MailTemplate/ConfirmationMail", registration);
+                    MailData mailData = new MailData
+                    {
+                        EmailToId = registration.Email,
+                        EmailToName = registration.NamaLengkap,
+                        EmailSubject = "Registration Confirmation",
+                        EmailBody = emailBody
+                    };
+                    await _mailSender.SendMail(mailData);
+                }
+                catch (Exception e)
+                {
+                    // todo: write exception
+                }
+               
                     
                 return RedirectToAction(nameof(Confirmation), new { registration_id = registration.Id });
             }
