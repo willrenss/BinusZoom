@@ -4,7 +4,7 @@ public class ZoomAccountList
 {
     public List<ZoomCredential> accounts { get; set; } = new List<ZoomCredential>();
     public string AccessTokenAuthUrl { get; set; }
-    public string PastMeetingUrl { get; set; }
+    public string PastMeetingParticipantUrlPattern { get; set; }
 }
 
 public class ZoomCredential
