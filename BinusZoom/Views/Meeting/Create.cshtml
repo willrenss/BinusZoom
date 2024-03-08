@@ -29,7 +29,13 @@
             </div>
             <div class="form-group">
                 <label class="control-label">Upload poster</label>
-                <input id="templateFile" name="templateFile" class="form-control" type="file"/>
+                <input id="posterTemplate" name="PosterTemplate" class="form-control" type="file"/>
+                <span asp-validation-for="PosterPath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Upload Template Certificate</label>
+                <input id="certificateTemplate" name="CertificateTemplate" class="form-control" type="file"/>
+                <span asp-validation-for="CertificatePath" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <br/>

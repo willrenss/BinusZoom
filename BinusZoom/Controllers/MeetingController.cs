@@ -6,6 +6,7 @@ using BinusZoom.Service.EmailService;
 using BinusZoom.Service.ZoomService;
 using BinusZoom.Template.MailTemplate;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom.Controllers;
@@ -70,27 +71,49 @@ public class MeetingController : Controller
     public async Task<IActionResult> Create(
         [Bind("Title,MeetingDate,PosterPath, LinkUrl")] 
         Meeting meeting, 
-        IFormFile templateFile)
+        IFormFile posterTemplate,
+        IFormFile certificateTemplate)
     {
         if (ModelState.IsValid)
         {
-            if (templateFile != null)
+            if (posterTemplate != null)
             {
-                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(templateFile.FileName);
-                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/public_imgs");
+                var posterFilename = Guid.NewGuid().ToString() + Path.GetExtension(posterTemplate.FileName);
+                var posterFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/public_imgs");
                 
-                Directory.CreateDirectory(folderPath);
-                
-                var filePath = Path.Combine(folderPath, fileName);
-
+                Directory.CreateDirectory(posterFolderPath);
+                var filePath = Path.Combine(posterFolderPath, posterFilename);
                 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    templateFile.CopyTo(fileStream);
+                    posterTemplate.CopyTo(fileStream);
                 }
 
-                meeting.PosterPath = fileName;
+                meeting.PosterPath = posterFilename;
             }
+                
+            if (certificateTemplate != null)
+            {
+                String certificateExtension = Path.GetExtension(certificateTemplate.FileName);
+                if (certificateExtension != ".pdf")
+                {
+                    ModelState.AddModelError("CertificatePath", "Certificate template must be in PDF format");
+                    return View(meeting);
+                }
+
+                var certificateFilename = Guid.NewGuid() + certificateExtension;
+                var certificateFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "certificate template");
+                Directory.CreateDirectory(certificateFolderPath);
+                var filePath = Path.Combine(certificateFolderPath, certificateFilename);
+                
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    certificateTemplate.CopyTo(fileStream);
+                }
+
+                meeting.CertificatePath = certificateFilename;
+            }
+            
             _context.Add(meeting);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -169,16 +192,6 @@ public class MeetingController : Controller
     [HttpGet("Meeting/{id}/Participants")]
     public async Task<IActionResult> Participants(string id)
     {
-        // get current time in long
-        long startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        
-        Task task = new Task(() =>
-        {
-            Console.WriteLine("HELLO WORLD! FROM TASK => " + DateTime.Now.ToString("HH:mm:ss.fff"));
-        });
-        TimeSpan timeSpan = TimeSpan.FromSeconds(10);
-        EmailScheduler es = new EmailScheduler(task, timeSpan);
-        await es.StartAsync(CancellationToken.None);
         if (id == null) return NotFound();
 
         var meeting = await _context.Meeting
@@ -215,8 +228,8 @@ public class MeetingController : Controller
                 EmailBody = emailBody
             };
          
-            var CertifRender = new CSCertificateRenderer();
-            var pdfBytes = await CertifRender.RenderCSHtmlToPdf(this.ControllerContext, "Template/CertificateTemplate/Certificate", participant);
+            var certifRender = new CSCertificateRenderer();
+            var pdfBytes = await certifRender.RenderCSHtmlToPdf(this.ControllerContext, "Template/CertificateTemplate/Certificate", participant);
             
             await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
         }
@@ -224,6 +237,14 @@ public class MeetingController : Controller
         long endTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
         Console.WriteLine("\nTime taken to send certificate to 50 participants: " + (endTime - startTime) + "ms");
         return RedirectToAction(nameof(Index));
+    }
+    
+    [HttpPost("Meeting/{id}/CsvAttendance")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AttendanceCsv(IFormFile attendanceCsv) 
+    {
+       // todo: read CSV
+        
     }
 
 

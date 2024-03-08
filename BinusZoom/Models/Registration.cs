@@ -27,4 +27,7 @@ public class Registration
     
     [ValidateNever]
     public Meeting Meeting { get; set; }
+    
+    [ValidateNever]
+    public Boolean EligibleForCertificate { get; set; } = false;
 }

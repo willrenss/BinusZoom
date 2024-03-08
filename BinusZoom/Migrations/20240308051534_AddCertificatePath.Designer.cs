@@ -4,6 +4,7 @@ using BinusZoom.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BinusZoom.Migrations
 {
     [DbContext(typeof(BinusZoomContext))]
-    partial class BinusZoomContextModelSnapshot : ModelSnapshot
+    [Migration("20240308051534_AddCertificatePath")]
+    partial class AddCertificatePath
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,9 +50,6 @@ namespace BinusZoom.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("hasSendCertificateToAll")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.ToTable("Meeting");
@@ -60,9 +60,6 @@ namespace BinusZoom.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("EligibleForCertificate")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Email")
                         .IsRequired()

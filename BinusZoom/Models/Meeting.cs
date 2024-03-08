@@ -23,7 +23,7 @@ public class Meeting
     [Display(Name = "Event Date")]
     public DateTime MeetingDate { get; set; }
     
-    [Url(ErrorMessage = "Harap menaruh URL yang tepat")]
+    [Url(ErrorMessage = "Harap mengisi URL yang tepat")]
     [Required(ErrorMessage = "Mohon mengisi link meeting")]
     [Display(Name = "URL untuk link meeting")]
     public String LinkUrl { get; set; }
@@ -36,4 +36,7 @@ public class Meeting
     
     [ValidateNever] // exclude from modelstate.isvalid when create
     public ICollection<Registration> Registrations { get; set; } = default!;
+    
+    [ValidateNever]
+    public Boolean hasSendCertificateToAll { get; set; } = false;
 }

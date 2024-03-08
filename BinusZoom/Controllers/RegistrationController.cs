@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BinusZoom.Data;
 using BinusZoom.Models;
+using BinusZoom.Service.CertificateService;
 using BinusZoom.Service.EmailService;
 using BinusZoom.Template.MailTemplate;
 
@@ -70,25 +71,6 @@ namespace BinusZoom.Controllers
                 registration.Meeting = await _context.Meeting.FindAsync(eventId);
                 _context.Add(registration);
                 await _context.SaveChangesAsync();
-
-                try
-                {
-                    String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext,
-                        "Template/MailTemplate/ConfirmationMail", registration);
-                    MailData mailData = new MailData
-                    {
-                        EmailToId = registration.Email,
-                        EmailToName = registration.NamaLengkap,
-                        EmailSubject = "Registration Confirmation",
-                        EmailBody = emailBody
-                    };
-                    await _mailSender.SendMail(mailData);
-                }
-                catch (Exception e)
-                {
-                    // todo: write exception
-                }
-               
                     
                 return RedirectToAction(nameof(Confirmation), new { registration_id = registration.Id });
             }
@@ -198,6 +180,46 @@ namespace BinusZoom.Controllers
         private bool RegistrationExists(string id)
         {
             return _context.Registration.Any(e => e.Id == id);
+        }
+        
+        // GET: Registration/5/Certificate
+        [HttpGet("Registration/{id}/Certificate")]
+        public async Task<IActionResult> Certificate(string? id)
+        {
+            if (id == null) return NotFound();
+
+            var registration = await _context.Registration
+                .Include(registration1 => registration1.Meeting)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (registration == null) return NotFound();
+            
+            if (registration.EligibleForCertificate)
+            {
+                try
+                {
+                    String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext,
+                        "Template/MailTemplate/ConfirmationMail", registration);
+                    MailData mailData = new MailData
+                    {
+                        EmailToId = registration.Email,
+                        EmailToName = registration.NamaLengkap,
+                        EmailSubject = "Registration Confirmation",
+                        EmailBody = emailBody
+                    };
+                    var certifRender = new CSCertificateRenderer();
+                    var pdfBytes = await certifRender.RenderCSHtmlToPdf(this.ControllerContext, "Template/CertificateTemplate/Certificate", registration);
+            
+                    await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+                }
+                catch (Exception e)
+                {
+                    // todo: write exception
+                }
+
+                return RedirectToAction("Participants", "Meeting", new { id = registration.Meeting.Id });
+            }
+
+            return RedirectToAction("Participants", "Meeting", new { id = registration.Meeting.Id });
         }
     }
 }
