@@ -4,35 +4,27 @@
     ViewData["Title"] = "Confirmation";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Confirmation Of Event</h2>
-<div>
-    <h4>Registration</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NIM)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NIM)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.NamaLengkap)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.NamaLengkap)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Meeting.MeetingDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Meeting.MeetingDate)
-        </dd>
-    </dl>
+<div class="confirm-page">
+    <div class="container-lg p-0 d-flex justify-content-center my-3">
+        <div class="card-details-wrap">
+            <div class="bg-white p-lg-5 p-3 shadow-lg card-details d-flex flex-column justify-content-center background-detail">
+                <div class="d-flex flex-column align-items-center justify-content-center ">
+                    <img class="img-fluid" width="150" src="~/images/success-images.gif" />
+                    <p class="title text-center">Registration Successfully</p>
+                </div>
+                <div class="align-items-start mt-2">
+                    <label class="label-form">Full Name</label>
+                    <p class="detail-confirm">@Html.DisplayFor(model => model.NamaLengkap)</p>
+                </div>
+                <div class="align-items-start mt-2">
+                    <label class="label-form">NIM</label>
+                    <p class="detail-confirm">@Html.DisplayFor(model => model.NIM)</p>
+                </div>
+                <div class="align-items-start mt-2">
+                    <label class="label-form">Email</label>
+                    <p class="detail-confirm">@Html.DisplayFor(model => model.Email)</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

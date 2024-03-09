@@ -5,55 +5,83 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create</a>
-</p>
-<table class="table">
-    <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PosterPath)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PosterPath)
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model)
+<div class="admin-page py-5">
+    <div class="container-lg ">
+        <div class="shadow-lg">
+            <div class="container d-flex justify-content-between align-items-center border-ltr px-3 py-3">
+                <h6 class="m-0">
+                    Event List
+                </h6>
+                <a  asp-action="Create" class="primary-filled-btn">Add Event</a>
+            </div>
+            <div class="border-ltr py-2">
+                <div class="d-flex container ht-32 search-bar-group">
+                    <div class="bg-white rounded d-flex align-items-center">
+                        <input class="me-1" placeholder="Search Event" />
+                        <img width="16" height="16" src="~/images/search-data.png" />
+                    </div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            No
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MeetingDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MeetingDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PosterPath)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PosterPath)
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(   modelItem => item.MeetingDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PosterPath)
-            </td>
-            <td>
-                <img width="50" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)"/>
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
-                <a asp-action="Participants" asp-route-id="@item.Id">Register List |</a>
-                <a asp-action="SendCertificateToAll" asp-route-meeting_id="@item.Id">Send Certificate</a>
-            </td>
-        </tr>
+                    <tr>
+                        <td>
+                            @(index+1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(   modelItem => item.MeetingDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PosterPath)
+                        </td>
+                        <td>
+                            <img width="50" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)" />
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <p class="menu-action dropdown-toggle" id="actionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Menu
+                                </p>
+                                <div class="dropdown-menu" aria-labelledby="actionDropdown">
+                                    <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                    <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                    <a class="dropdown-item" asp-action="Participants" asp-route-id="@item.Id">Register List</a>
+                                    <a class="dropdown-item" asp-action="SendCertificateToAll" asp-route-meeting_id="@item.Id">Send Certificate</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
     }
-    </tbody>
-</table>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

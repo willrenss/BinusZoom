@@ -34,25 +34,25 @@ ViewData["Title"] = "Home Page";
         <div class="container">
             <div class="row row-cols-1 row-cols-md-5 g-5 justify-content-center">
                 @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
-        {
-                <div class="card-img @(index % 2 == 0 ? "slide-left" : "slide-right")">
-                    <div class="card-content">
-                        <img class="img-fluid" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)" />
-                        <div class="card-content-hover">
-                            <div class="d-flex flex-column justify-content-center align-items-center">
-                                <a asp-controller="Meeting" asp-action="Details" asp-route-id="@item.Id" class="secondary-filled-btn">Detail Event</a>
-                                <a asp-action="Create" asp-controller="Registration" asp-route-event_id="@item.Id" class="primary-filled-btn mt-2">Register Event</a>
+                {
+                    <div class="card-img @(index % 2 == 0 ? "slide-left" : "slide-right")">
+                        <div class="card-content">
+                            <img class="img-fluid" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)" />
+                            <div class="card-content-hover">
+                                <div class="d-flex flex-column justify-content-center align-items-center">
+                                    <a asp-controller="Meeting" asp-action="Details" asp-route-id="@item.Id" class="secondary-filled-btn">Detail Event</a>
+                                    <a asp-action="Create" asp-controller="Registration" asp-route-event_id="@item.Id" class="primary-filled-btn mt-2">Register Event</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-date">
+                            <div class="justify-content-center align-items-center date">
+                                <p> @item.MeetingDate.ToString("dd") </p>
+                                <p> @item.MeetingDate.ToString("MMM") </p>
                             </div>
                         </div>
                     </div>
-                    <div class="card-date">
-                        <div class="justify-content-center align-items-center date">
-                            <p> @item.MeetingDate.ToString("dd") </p>
-                            <p> @item.MeetingDate.ToString("MMM") </p>
-                        </div>
-                    </div>
-                </div>
-        }
+                }
             </div>
         </div>
     </div>
