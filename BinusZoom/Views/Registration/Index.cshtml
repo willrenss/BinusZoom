@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+               No
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.NIM)
             </th>
             <th>
@@ -26,8 +29,12 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
+    {
         <tr>
+            <td>
+                @index + 1
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.NIM)
             </td>
