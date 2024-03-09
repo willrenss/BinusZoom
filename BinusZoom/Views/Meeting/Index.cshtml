@@ -17,9 +17,12 @@
             <div class="border-ltr py-2">
                 <div class="d-flex container ht-32 search-bar-group">
                     <div class="bg-white rounded d-flex align-items-center">
-                        <input class="me-1" placeholder="Search Event" />
+                        <input form="search" class="me-1" name="titleFilter" placeholder="Search Event" />
                         <img width="16" height="16" src="~/images/search-data.png" />
                     </div>
+                    <form id="search" method="get" asp-action="Index">
+                        <input type="submit" class="primary-filled-btn" value="Cari"/>
+                    </form>
                 </div>
             </div>
             <table>
