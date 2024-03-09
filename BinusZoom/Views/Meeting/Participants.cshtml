@@ -63,7 +63,7 @@
             <td>
                 @if (item.EligibleForCertificate)
                 {
-                    <a asp-controller="Registration" asp-action="Certificate" asp-route-id="@item.Id" class="btn btn-primary">Send Certificate Certificate</a>
+                    <a asp-controller="Registration" asp-action="SendCertificateTo" asp-route-id="@item.Id" class="btn btn-primary">Send Certificate Certificate</a>
                 }
             </td>
         </tr>

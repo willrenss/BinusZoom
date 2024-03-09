@@ -1,0 +1,16 @@
+@model BinusZoom.Models.Registration
+@{
+    ViewData["Title"] = "ConfirmationMail";
+}
+
+<h2>Here's your certificate</h2>
+<div>
+    <span>Terima kasih sudah mengikuti seminar <span style="font-weight: bold">@Model.Meeting.Title</span> dengan antusias</span>
+    <p>
+        Nama: @Model.NamaLengkap
+    </p>
+    <p>
+        Email: @Model.Email
+    </p>
+
+</div>

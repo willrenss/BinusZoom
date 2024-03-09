@@ -184,7 +184,7 @@ namespace BinusZoom.Controllers
         
         // GET: Registration/5/Certificate
         [HttpGet("Registration/{id}/Certificate")]
-        public async Task<IActionResult> Certificate(string? id)
+        public async Task<IActionResult> SendCertificateTo(string? id)
         {
             if (id == null) return NotFound();
 
@@ -198,7 +198,7 @@ namespace BinusZoom.Controllers
                 try
                 {
                     String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext,
-                        "Template/MailTemplate/ConfirmationMail", registration);
+                        "Template/MailTemplate/CertificateMail", registration);
                     MailData mailData = new MailData
                     {
                         EmailToId = registration.Email,
