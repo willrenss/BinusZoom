@@ -29,16 +29,13 @@
                             No
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.MeetingDate)
+                            @Html.DisplayNameFor(model => model.Title)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.MeetingDate)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.PosterPath)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.PosterPath)
+                            Poster
                         </th>
                         <th>
                             Action
@@ -59,9 +56,6 @@
                             @Html.DisplayFor(   modelItem => item.MeetingDate)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PosterPath)
-                        </td>
-                        <td>
                             <img width="50" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)" />
                         </td>
                         <td>
@@ -74,7 +68,6 @@
                                     <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
                                     <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                                     <a class="dropdown-item" asp-action="Participants" asp-route-id="@item.Id">Register List</a>
-                                    <a class="dropdown-item" asp-action="SendCertificateToAll" asp-route-meeting_id="@item.Id">Send Certificate</a>
                                 </div>
                             </div>
                         </td>

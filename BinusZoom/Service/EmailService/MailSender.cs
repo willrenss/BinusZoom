@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Mail;
 
 namespace BinusZoom.Service.EmailService;
@@ -11,7 +12,7 @@ public class MailSender
         _mailSettings = mailSettings;
         _smtpClient = new SmtpClient(_mailSettings.Server, _mailSettings.Port)
         {
-            Credentials = null,
+            Credentials = new NetworkCredential(_mailSettings.UserName, _mailSettings.Password),
             EnableSsl = false
         };
     }
@@ -45,14 +46,10 @@ public class MailSender
             using (MemoryStream ms = new MemoryStream(attachmentByte))
             {
                 message.Attachments.Add(new Attachment(ms, "Certificate", "application/pdf"));
-                using (SmtpClient smtp = new SmtpClient(_mailSettings.Server, _mailSettings.Port))
-                {
-                    smtp.Credentials = new System.Net.NetworkCredential(_mailSettings.UserName, _mailSettings.Password);
-                    smtp.EnableSsl = true;
-                    await smtp.SendMailAsync(message, CancellationToken.None);
-                    return true;
-                }
+                await _smtpClient.SendMailAsync(message, CancellationToken.None);
             }
         }
+
+        return true;
     }
 }

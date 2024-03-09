@@ -1,12 +1,12 @@
+using System.Globalization;
 using BinusZoom.Data;
 using BinusZoom.Models;
-using BinusZoom.Service;
 using BinusZoom.Service.CertificateService;
 using BinusZoom.Service.EmailService;
-using BinusZoom.Service.ZoomService;
+using BinusZoom.Service.ZoomService.DTO;
 using BinusZoom.Template.MailTemplate;
+using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom.Controllers;
@@ -16,33 +16,31 @@ public class MeetingController : Controller
     private readonly BinusZoomContext _context;
     private readonly CSMailRenderer _csMailRenderer;
     private readonly MailSender _mailSender;
-    private readonly ZoomMeetingService _zoomMeetingService;
 
-    public MeetingController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender, ZoomMeetingService zoomMeetingService)
+    public MeetingController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender)
     {
         _context = context;
         _csMailRenderer = csMailRenderer;
         _mailSender = mailSender;
-        _zoomMeetingService = zoomMeetingService;
-    }
-    
-    public async Task<JsonResult> Trigger()
-    {
-        await _zoomMeetingService.GetParticipantList("0");
-        return Json(_zoomMeetingService.ZoomAccountList.accounts);
-    }
-    
-    // return create action that return json
-    public async Task<JsonResult> Token()
-    {
-        
-        return Json(_zoomMeetingService.ZoomAccountList.accounts);
     }
 
     // GET: Meeting
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string titleFilter, string dateFilter, string endDateFilter)
     {
-        return View(await _context.Meeting.ToListAsync());
+        var meetings = from m in _context.Meeting
+            select m;
+
+        if (!String.IsNullOrEmpty(titleFilter))
+        {
+            meetings = meetings.Where(s => s.Title.Contains(titleFilter));
+        }
+
+        if (!String.IsNullOrEmpty(dateFilter))
+        {
+            meetings = meetings.Where(s => s.MeetingDate.ToString().Contains(dateFilter));
+        }
+
+        return View(await meetings.ToListAsync());
     }
 
     // GET: Meeting/Details/5
@@ -69,8 +67,8 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(
-        [Bind("Title,MeetingDate,PosterPath, LinkUrl")] 
-        Meeting meeting, 
+        [Bind("Title,MeetingDate,PosterPath, LinkUrl")]
+        Meeting meeting,
         IFormFile posterTemplate,
         IFormFile certificateTemplate)
     {
@@ -78,12 +76,12 @@ public class MeetingController : Controller
         {
             if (posterTemplate != null)
             {
-                var posterFilename = Guid.NewGuid().ToString() + Path.GetExtension(posterTemplate.FileName);
+                var posterFilename = Guid.NewGuid() + Path.GetExtension(posterTemplate.FileName);
                 var posterFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/public_imgs");
-                
+
                 Directory.CreateDirectory(posterFolderPath);
                 var filePath = Path.Combine(posterFolderPath, posterFilename);
-                
+
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     posterTemplate.CopyTo(fileStream);
@@ -91,10 +89,10 @@ public class MeetingController : Controller
 
                 meeting.PosterPath = posterFilename;
             }
-                
+
             if (certificateTemplate != null)
             {
-                String certificateExtension = Path.GetExtension(certificateTemplate.FileName);
+                var certificateExtension = Path.GetExtension(certificateTemplate.FileName);
                 if (certificateExtension != ".pdf")
                 {
                     ModelState.AddModelError("CertificatePath", "Certificate template must be in PDF format");
@@ -105,7 +103,7 @@ public class MeetingController : Controller
                 var certificateFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "certificate template");
                 Directory.CreateDirectory(certificateFolderPath);
                 var filePath = Path.Combine(certificateFolderPath, certificateFilename);
-                
+
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     certificateTemplate.CopyTo(fileStream);
@@ -113,7 +111,7 @@ public class MeetingController : Controller
 
                 meeting.CertificatePath = certificateFilename;
             }
-            
+
             _context.Add(meeting);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -138,7 +136,8 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(string id,
-        [Bind("Id,MeetingDate,MeetingEndDate,PosterPath,CertificateTemplatePath")] Meeting meeting)
+        [Bind("Id,MeetingDate,MeetingEndDate,PosterPath,CertificateTemplatePath")]
+        Meeting meeting)
     {
         if (id != meeting.Id) return NotFound();
 
@@ -180,14 +179,13 @@ public class MeetingController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(string id)
     {
-        
         var meeting = await _context.Meeting.FindAsync(id);
         if (meeting != null) _context.Meeting.Remove(meeting);
 
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
-    
+
     // GET: Meeting/5/Participants
     [HttpGet("Meeting/{id}/Participants")]
     public async Task<IActionResult> Participants(string id)
@@ -205,46 +203,96 @@ public class MeetingController : Controller
     [HttpGet("Meeting/{meeting_id}/SendCertificate")]
     public async Task<IActionResult> SendCertificateToAll(string meeting_id)
     {
-        long startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        
+        var startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+
         // get 50 participants
         var participants = await _context.Registration
             .Where(reg => reg.Meeting.Id == meeting_id)
-            .Take(50)
+            .Where(reg => reg.EligibleForCertificate == true)
             .ToListAsync();
-        
+
         var firstParticipant = participants.First();
-        
+
         // send certificate to participants
-        String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext, "Template/MailTemplate/ConfirmationMail", firstParticipant);
+        var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+            "Template/MailTemplate/ConfirmationMail", firstParticipant);
 
         foreach (var participant in participants)
         {
-            MailData mailData = new MailData
+            var mailData = new MailData
             {
                 EmailToId = participant.Email,
                 EmailToName = participant.NamaLengkap,
                 EmailSubject = "Registration Confirmation",
                 EmailBody = emailBody
             };
-         
+
             var certifRender = new CSCertificateRenderer();
-            var pdfBytes = await certifRender.RenderCSHtmlToPdf(this.ControllerContext, "Template/CertificateTemplate/Certificate", participant);
-            
+            var pdfBytes = await certifRender.RenderCSHtmlToPdf(ControllerContext,
+                "Template/CertificateTemplate/Certificate", participant);
+
             await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
         }
+
+        Meeting? currentMeeting = _context.Meeting.Find(meeting_id);
+        if (currentMeeting != null)
+        {
+            currentMeeting.hasSendCertificateToAll = true;
+            await _context.SaveChangesAsync();
+        }
         
-        long endTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        Console.WriteLine("\nTime taken to send certificate to 50 participants: " + (endTime - startTime) + "ms");
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Participants), new { id = meeting_id});
     }
-    
+
     [HttpPost("Meeting/{id}/CsvAttendance")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AttendanceCsv(IFormFile attendanceCsv) 
+    public async Task<IActionResult> AttendanceCsv(String id, IFormFile attendanceCsv)
     {
-       // todo: read CSV
+        var sr = new StreamReader(attendanceCsv.OpenReadStream());
+        await sr.ReadLineAsync();
+        await sr.ReadLineAsync();
+        await sr.ReadLineAsync();
+
+        var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
+        await csv.ReadAsync();
+        csv.ReadHeader();
+
+        var listOfAttendees = new List<Participants>();
+        while (await csv.ReadAsync())
+        {
+            var obj = new Participants
+            {
+                UserEmail = csv.GetField<string>("User Email"),
+                Duration = csv.GetField<int>("Duration (Minutes)")
+            };
+            listOfAttendees.Add(obj);
+        }
         
+
+        var result = listOfAttendees.AsEnumerable();
+        var attendeesListOver35Minutes = from attendee in result
+            where attendee.Duration >= 35
+            group attendee by attendee.UserEmail
+            into g
+            select new
+            {
+                UserEmail = g.Key,
+                TotalDuration = g.Max(attendee => attendee.Duration)
+            };
+
+        // find all attendeesListOver35Minutes where email is in the list of Registration table
+        var studentResult = _context.Registration
+            .Where(registration => attendeesListOver35Minutes
+                    .Select(attendee => attendee.UserEmail)
+                .Contains(registration.Email));
+  
+        foreach (var x1 in studentResult)
+        {
+            x1.EligibleForCertificate = true;
+        }
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Participants), new { id = id});
     }
 
 
