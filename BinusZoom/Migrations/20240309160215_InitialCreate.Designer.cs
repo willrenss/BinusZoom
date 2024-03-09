@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BinusZoom.Migrations
 {
     [DbContext(typeof(BinusZoomContext))]
-    [Migration("20240209083451_AddMoreFK")]
-    partial class AddMoreFK
+    [Migration("20240309160215_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,12 +31,27 @@ namespace BinusZoom.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("CertificatePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("MeetingDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PosterPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("hasSendCertificateToAll")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -49,11 +64,15 @@ namespace BinusZoom.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<bool>("EligibleForCertificate")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MeetingId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("NIM")
@@ -75,7 +94,9 @@ namespace BinusZoom.Migrations
                 {
                     b.HasOne("BinusZoom.Models.Meeting", "Meeting")
                         .WithMany("Registrations")
-                        .HasForeignKey("MeetingId");
+                        .HasForeignKey("MeetingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Meeting");
                 });

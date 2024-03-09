@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BinusZoom.Migrations
 {
     /// <inheritdoc />
-    public partial class addFK : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,8 +16,12 @@ namespace BinusZoom.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MeetingDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PosterPath = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    LinkUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PosterPath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CertificatePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    hasSendCertificateToAll = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -32,7 +36,8 @@ namespace BinusZoom.Migrations
                     NIM = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NamaLengkap = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MeetingId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    MeetingId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    EligibleForCertificate = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
