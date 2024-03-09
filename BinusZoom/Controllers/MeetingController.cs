@@ -6,11 +6,13 @@ using BinusZoom.Service.EmailService;
 using BinusZoom.Service.ZoomService.DTO;
 using BinusZoom.Template.MailTemplate;
 using CsvHelper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom.Controllers;
 
+[Authorize]
 public class MeetingController : Controller
 {
     private readonly BinusZoomContext _context;

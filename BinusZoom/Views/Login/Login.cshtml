@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*create simple login page*@
+
+<div>
+    <form asp-action="Login" method="post">
+        <input name="username"/>
+        <input name="password"/>
+        <input type="submit"/>
+    </form>
+</div>
