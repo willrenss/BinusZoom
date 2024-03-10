@@ -19,7 +19,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return View(await _context.Meeting.ToListAsync());
+        return View(await _context.Meeting.Where(meeting => meeting.MeetingDate > DateTime.Now).ToListAsync());
     }
 
     public IActionResult Privacy()

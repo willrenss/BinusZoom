@@ -44,7 +44,7 @@ public class MeetingController : Controller
 
         if (!User.Identity.IsAuthenticated)
         {
-            meetings = meetings.Where(meeting => meeting.MeetingDate > DateTimeOffset.Now);
+            meetings = meetings.Where(meeting => meeting.MeetingDate > DateTime.Now);
         }
 
         return View(await meetings.ToListAsync());
