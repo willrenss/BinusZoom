@@ -4,47 +4,42 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Create</h1>
-
-<h4>Meeting</h4>
-<hr/>
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control"/>
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MeetingDate" class="control-label"></label>
-                <input asp-for="MeetingDate" class="form-control" type="datetime-local"/>
-                <span asp-validation-for="MeetingDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LinkUrl" class="control-label"></label>
-                <input asp-for="LinkUrl" class="form-control"/>
-                <span asp-validation-for="LinkUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Upload poster</label>
-                <input id="posterTemplate" name="PosterTemplate" class="form-control" type="file"/>
-                <span asp-validation-for="PosterPath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Upload Template Certificate</label>
-                <input id="certificateTemplate" name="CertificateTemplate" class="form-control" type="file"/>
-                <span asp-validation-for="CertificatePath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <br/>
-                <input type="submit" value="Create" class="btn btn-primary"/>
-            </div>
-        </form>
+<div class="admin-page py-5">
+    <div class="container-lg my-5">
+        <div class="d-flex justify-content-center px-3 pt-5 container">
+            <form class=" bg-white px-5 pt-5 pb-3 rounded justify-content-center shadow-lg" asp-action="Create" enctype="multipart/form-data">
+                <h1 class="text-center">Create Event</h1>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group my-3">
+                    <label asp-for="Title" class="label-form"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="MeetingDate" class="label-form"></label>
+                    <input asp-for="MeetingDate" class="form-control" type="datetime-local" value="yyyy-MM-ddTHH:mm" />
+                    <span asp-validation-for="MeetingDate" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label asp-for="LinkUrl" class="label-form"></label>
+                    <input asp-for="LinkUrl" class="form-control" />
+                    <span asp-validation-for="LinkUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label class="label-form">Upload poster</label>
+                    <input id="posterTemplate" name="PosterTemplate" class="form-control" type="file" />
+                    <span asp-validation-for="PosterPath" class="text-danger"></span>
+                </div>
+                <div class="form-group my-3">
+                    <label class="label-form">Upload Template Certificate</label>
+                    <input id="certificateTemplate" name="CertificateTemplate" class="form-control" type="file" />
+                    <span asp-validation-for="CertificatePath" class="text-danger"></span>
+                </div>             
+                <div class="form-group d-flex justify-content-end mt-3 pt-3">
+                    <a class="secondary-filled-btn me-2" asp-action="Index">Cancel</a>
+                    <input type="submit" value="Create" class="primary-filled-btn" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>

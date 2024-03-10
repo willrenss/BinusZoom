@@ -21,6 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="certificate template\" />
         <Folder Include="Migrations\" />
         <Folder Include="wwwroot\" />
     </ItemGroup>

@@ -6,6 +6,7 @@ using BinusZoom.Service.EmailService;
 using BinusZoom.Service.ZoomService.DTO;
 using BinusZoom.Template.MailTemplate;
 using CsvHelper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

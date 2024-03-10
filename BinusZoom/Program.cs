@@ -5,6 +5,7 @@ using BinusZoom.Service.EmailService;
 using BinusZoom.Service.ZoomService;
 using BinusZoom.Service.ZoomService.DTO;
 using BinusZoom.Template.MailTemplate;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom;
@@ -50,6 +51,12 @@ public class Program
         });
 
         builder.Services.AddScoped<ZoomMeetingService>();
+
+        builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
+            {
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+            });
         
         // Build the App
         var app = builder.Build();
@@ -64,18 +71,16 @@ public class Program
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();
-
+        
         app.UseRouting();
         
+        app.UseAuthentication();
+        app.UseAuthorization();
         
         app.MapControllerRoute(
             "default",
-            "{controller=Home}/{action=Index}/{id?}").RequireRateLimiting("LimitRequest");
+            "{controller=Home}/{action=Index}/{id?}");
         
-        app.MapControllers().RequireRateLimiting("LimitRequest");
-
         app.Run();
-
-        app.Services.GetRequiredService<BinusZoomContext>().Database.Migrate();
     }
 }

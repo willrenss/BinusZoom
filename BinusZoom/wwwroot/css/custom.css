@@ -46,30 +46,6 @@
   padding: 5px 10px;
 }
 
-/*<a asp-action="Create" asp-controller="Registration" asp-route-event_id="@Model?.Id">Register to this event</a> |
-<a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-<a asp-action="Index">Back to List</a>
-
-
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MeetingDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MeetingDate)
-        </dd>
-        <dt class="col-sm-10">
-            Poster Image
-        </dt>
-        <dd>
-            <img class="img-thumbnail" src="~/@Html.DisplayFor(model => model.PosterPath)" />
-        </dd>
-    </dl>
-
-    <p>
-    <a asp-action="Create">Create</a>
-</p>
-*/
 .section-home-2 {
   width: 100%;
   min-height: 80vh;
@@ -142,6 +118,18 @@
   display: flex;
   justify-content: center;
 }
+.admin-page h1 {
+  font-family: "Lato", sans-serif;
+  color: rgba(2, 132, 198, 0.8);
+  text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.4), 0 0 0 #000, 0px 4px 4px rgba(255, 255, 255, 0.2);
+  font-weight: bolder;
+  font-style: italic;
+}
+.admin-page .label-form {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
 .admin-page .search-bar-group {
   bottom: -28px;
 }
@@ -149,11 +137,12 @@
   width: 200px;
   padding: 5px 10px;
   border: 0.5px solid #E8E8E8;
+  border-radius: 5px 0px 0px 5px;
 }
 .admin-page .search-bar-group div input {
   border: none;
   outline: none;
-  height: 30px;
+  height: 20px;
   width: 100%;
   font-size: 14px;
 }
@@ -267,6 +256,11 @@
   font-weight: bolder;
   font-size: 40px;
   margin: -15px 0 0 0;
+}
+.confirm-page .card-details-wrap .card-details .text-inform {
+  font-size: 13px;
+  color: #468E21;
+  margin: 0;
 }
 .confirm-page .card-details-wrap .card-details .label-form {
   color: darkgrey;
@@ -494,6 +488,81 @@
   color: white;
 }
 
+.primary-filled-btn-small {
+  background: var(--wl-primary-btn);
+  border: 1px solid var(--wl-primary-btn-border);
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0px 5px 5px 0px;
+  width: 80px;
+  font-weight: 400;
+  padding: 2px 25px;
+  height: 30.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.primary-filled-btn-small * {
+  color: white;
+  font-weight: bold;
+}
+.primary-filled-btn-small:hover {
+  opacity: 0.9;
+  color: white;
+}
+.primary-filled-btn-small:active {
+  background: var(--wl-primary-hover);
+  border: 1px solid var(--wl-primary-hover);
+  color: white;
+}
+
+.secondary-filled-btn-small {
+  background: var(--wl-secondary-btn);
+  border: 1px solid var(--wl-secondary-btn-border);
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 0px 5px 5px 0px;
+  width: 80px;
+  font-weight: 400;
+  padding: 2px 25px;
+  height: 30.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.secondary-filled-btn-small * {
+  color: white;
+  font-weight: bold;
+}
+.secondary-filled-btn-small:hover {
+  opacity: 0.9;
+  color: white;
+}
+.secondary-filled-btn-small:active {
+  background: var(--wl-secondary-hover);
+  border: 1px solid var(--wl-secondary-hover);
+  color: white;
+}
+
+/*
+    <h2>title</h2>
+<a class="btn btn-primary" asp-action="Index">Back</a>
+@if (!Model.hasSendCertificateToAll)
+{
+    <form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
+        <input id="attendanceCsv" name="attendanceCsv" type="file" />
+        <input type="submit" class="btn btn-primary" />
+    </form>
+}
+
+<a class="btn btn-warning" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Send Certificate To All</a>
+*/
 .height-14 {
   height: 14px !important;
 }
@@ -1066,6 +1135,12 @@ table tr {
   border-top: 0.5px solid #E8E8E8;
 }
 
+.border-lrb {
+  border-left: 0.5px solid #E8E8E8;
+  border-right: 0.5px solid #E8E8E8;
+  border-bottom: 0.5px solid #E8E8E8;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -1098,5 +1173,31 @@ table tr {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
+/* Style the overlay when hovering 
+.uploader-container {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    border: 2px dashed #ccc;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 24px;
+    color: #777;
+}
+
+.uploader-container:hover {
+    background-color: #f9f9f9;
+}
+
+Hide the default file input 
+input[type="file"] {
+    display: none;
+}
+    */
 
 /*# sourceMappingURL=custom.css.map */
