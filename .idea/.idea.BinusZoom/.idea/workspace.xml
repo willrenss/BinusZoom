@@ -21,9 +21,12 @@
   <component name="ChangeListManager">
     <list default="true" id="06b91452-faf2-49dc-96f9-fbd0f7d757e0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BinusZoom/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/LoginController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/LoginController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Participants.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/Views/Meeting/Participants.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinusZoom/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BinusZoom/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BinusZoom/Views/Registration/Index.cshtml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,19 +44,32 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Controllers/LoginController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Controllers/RegistrationController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Controllers/MeetingController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Models/Meeting.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Create.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Delete.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Details.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Edit.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Participants.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Participants.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Participants.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Participants.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Participants.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/UserTEmp/GITHUB/BinusZoom/BinusZoom/Views/Meeting/Participants.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/appsettings.Development.json" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/BinusZoom/wwwroot/lib/jquery/dist/jquery.min.map" root0="FORCE_HIGHLIGHTING" />
@@ -472,65 +488,65 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>73</line>
+          <line>78</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="65" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2363" />
+              <option value="2520" />
             </startOffsets>
             <endOffsets>
-              <option value="2385" />
+              <option value="2542" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>74</line>
+          <line>79</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="66" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2398" />
+              <option value="2555" />
             </startOffsets>
             <endOffsets>
-              <option value="2432" />
+              <option value="2589" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>75</line>
+          <line>80</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="67" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="2445" />
+              <option value="2602" />
             </startOffsets>
             <endOffsets>
-              <option value="2484" />
+              <option value="2641" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>58</line>
+          <line>63</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="52" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1733" />
+              <option value="1890" />
             </startOffsets>
             <endOffsets>
-              <option value="1758" />
+              <option value="1915" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs</url>
-          <line>56</line>
+          <line>61</line>
           <properties documentPath="$PROJECT_DIR$/BinusZoom/Controllers/MeetingController.cs" initialLine="50" containingFunctionPresentation="Method 'Create'">
             <startOffsets>
-              <option value="1687" />
+              <option value="1844" />
             </startOffsets>
             <endOffsets>
-              <option value="1710" />
+              <option value="1867" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
@@ -559,7 +575,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs</url>
-          <line>83</line>
+          <line>77</line>
           <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Controllers\RegistrationController.cs" initialLine="88" containingFunctionPresentation="Method 'Create'" />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
@@ -577,7 +593,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/BinusZoom/Controllers/RegistrationController.cs</url>
-          <line>80</line>
+          <line>74</line>
           <properties documentPath="C:\Users\user\Documents\GITHUB\BinusZoom\BinusZoom\Controllers\RegistrationController.cs" initialLine="81" containingFunctionPresentation="Method 'Create'" />
           <option name="timeStamp" value="21" />
         </line-breakpoint>

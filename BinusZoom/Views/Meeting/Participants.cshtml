@@ -6,10 +6,10 @@
 }
 @if (!Model.hasSendCertificateToAll)
 {
-<form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
-    <input id="attendanceCsv" name="attendanceCsv" type="file" />
-    <input type="submit" class="btn btn-primary" />
-</form>
+    <form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
+        <input id="attendanceCsv" name="attendanceCsv" type="file"/>
+        <input type="submit" class="btn btn-primary"/>
+    </form>
 }
 
 <a class="btn btn-warning" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Send Certificate To All</a>
@@ -29,43 +29,43 @@
             <div class="bg-white border-ltr py-2">
                 <div class=" d-flex align-items-center container-fluid ht-32 search-bar-group">
                     <div class="bg-white d-flex align-items-center">
-                        <input form="search" class="me-1" name="titleFilter" placeholder="Search NIM" />
-                        <img width="16" height="16" src="~/images/search-data.png" />
+                        <input form="search" class="me-1" name="titleFilter" placeholder="Search NIM"/>
+                        <img width="16" height="16" src="~/images/search-data.png"/>
                     </div>
                     <form id="search" method="get" asp-action="Index">
-                        <input type="submit" class="primary-filled-btn-small" value="Cari" />
+                        <input type="submit" class="primary-filled-btn-small" value="Cari"/>
                     </form>
                 </div>
             </div>
             <table>
                 <thead>
-                    <tr>
-                        <th>
-                            No
-                        </th>
-                        <th>
-                            Full Name
-                        </th>
-                        <th>
-                            NIM
-                        </th>
-                        <th>
-                            Email
-                        </th>
-                        <th>
-                            Eligible for Certificate
-                        </th>
-                        <th>
-                            Action
-                        </th>
-                    </tr>
+                <tr>
+                    <th>
+                        No
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        NIM
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        Eligible for Certificate
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
                 </thead>
                 <tbody>
-                    @foreach (var (item, index) in Model.Registrations.Select((value, i) => (value, i)))
-            {
+                @foreach (var (item, index) in Model.Registrations.Select((value, i) => (value, i)))
+                {
                     <tr>
                         <td>
-                            @(index+1)
+                            @(index + 1)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.NamaLengkap)
@@ -79,11 +79,11 @@
                         <td>
                             @if (item.EligibleForCertificate)
                             {
-                            <span class="text-primary">Yes</span>
+                                <span class="text-primary">Yes</span>
                             }
                             else
                             {
-                            <span class="text-danger">No</span>
+                                <span class="text-danger">No</span>
                             }
                         </td>
                         <td>
@@ -94,17 +94,18 @@
                                 <div class="dropdown-menu" aria-labelledby="actionDropdown">
                                     @if (item.EligibleForCertificate)
                                     {
-                                    <a asp-controller="Registration" asp-action="SendCertificateTo" asp-route-id="@item.Id" class="dropdown-item">Send Certificate</a>
+                                        <a asp-controller="Registration" asp-action="SendCertificateTo" asp-route-id="@item.Id" class="dropdown-item">Send Certificate</a>
                                     }
-                                    else{
-                                    <a class="dropdown-item">No Action</a>
+                                    else
+                                    {
+                                        <a class="dropdown-item">No Action</a>
                                     }
                                 </div>
                             </div>
 
                         </td>
                     </tr>
-            }
+                }
                 </tbody>
             </table>
         </div>

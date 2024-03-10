@@ -38,16 +38,15 @@ public class LoginController : Controller
         var authProperties = new AuthenticationProperties
         {
             AllowRefresh = true,
-            ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30),
             IsPersistent = true
         };
-        
+
         await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(claimsIdentity),
             authProperties);
-        
-        return View();
+
+        return RedirectToAction(nameof(Index), "Meeting");
     }
     
     [HttpGet("Logout/")]

@@ -20,13 +20,7 @@ namespace BinusZoom.Controllers
             _csMailRenderer = csMailRenderer;
             _mailSender = mailSender;
         }
-
-        // GET: Registration
-        public async Task<IActionResult> Index()
-        {
-            return View(await _context.Registration.ToListAsync());
-        }
-
+        
         // GET: Registration/Details/5
         [HttpGet("Registration/Details/{id}")]
         public async Task<IActionResult> Details(string id)
@@ -139,7 +133,7 @@ namespace BinusZoom.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "Meeting");
             }
             return View(registration);
         }
@@ -174,7 +168,7 @@ namespace BinusZoom.Controllers
             }
 
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "Meeting");
         }
 
         private bool RegistrationExists(string id)
