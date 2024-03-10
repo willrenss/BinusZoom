@@ -25,6 +25,7 @@ public class MeetingController : Controller
         _mailSender = mailSender;
     }
 
+    [AllowAnonymous]
     // GET: Meeting
     public async Task<IActionResult> Index(string titleFilter, string dateFilter, string endDateFilter)
     {

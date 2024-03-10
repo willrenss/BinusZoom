@@ -55,6 +55,8 @@ public class Program
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(options =>
             {
+                options.LoginPath = "/Login";
+                options.LogoutPath = "/";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
             });
         
