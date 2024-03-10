@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BinusZoom.Controllers;
 
+[Authorize]
 public class MeetingController : Controller
 {
     private readonly BinusZoomContext _context;
