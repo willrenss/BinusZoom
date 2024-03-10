@@ -49,4 +49,11 @@ public class LoginController : Controller
         
         return View();
     }
+    
+    [HttpGet("Logout/")]
+    public async Task<IActionResult> Logout()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        return RedirectToAction("Index", "Home");
+    }
 }
