@@ -8,20 +8,20 @@
 <div class="admin-page py-5">
     <div class="container-lg ">
         <div class="shadow-lg">
-            <div class="container d-flex justify-content-between align-items-center border-ltr px-3 py-3">
+            <div class="bg-white container-fluid d-flex justify-content-between align-items-center border-ltr px-3 py-3">
                 <h6 class="m-0">
                     Event List
                 </h6>
-                <a  asp-action="Create" class="primary-filled-btn">Add Event</a>
+                <a asp-action="Create" class="primary-filled-btn">Add Event</a>
             </div>
-            <div class="border-ltr py-2">
-                <div class="d-flex container ht-32 search-bar-group">
-                    <div class="bg-white rounded d-flex align-items-center">
-                        <input form="search" class="me-1" name="titleFilter" placeholder="Search Event" />
+            <div class="bg-white border-ltr py-2">
+                <div class=" d-flex align-items-center container-fluid ht-32 search-bar-group">
+                    <div class="bg-white d-flex align-items-center">
+                        <input form="search" class="me-1" name="titleFilter" placeholder="Search Event Name" />
                         <img width="16" height="16" src="~/images/search-data.png" />
                     </div>
                     <form id="search" method="get" asp-action="Index">
-                        <input type="submit" class="primary-filled-btn" value="Cari"/>
+                        <input type="submit" class="primary-filled-btn-small" value="Cari" />
                     </form>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                             No
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Title)
+                            Event Name
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.MeetingDate)
@@ -45,9 +45,11 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                @if(Model.Count() != 0)
+                    {
+                <tbody class="bg-whtie">
                     @foreach (var (item, index) in Model.Select((value, i) => (value, i)))
-    {
+                            {
                     <tr>
                         <td>
                             @(index+1)
@@ -56,7 +58,7 @@
                             @Html.DisplayFor(modelItem => item.Title)
                         </td>
                         <td>
-                            @Html.DisplayFor(   modelItem => item.MeetingDate)
+                            @Html.DisplayFor(modelItem => item.MeetingDate)
                         </td>
                         <td>
                             <img width="50" src="public_imgs/@Html.DisplayFor(modelItem => item.PosterPath)" />
@@ -69,15 +71,22 @@
                                 <div class="dropdown-menu" aria-labelledby="actionDropdown">
                                     <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
                                     <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id">Details</a>
-                                    <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                                     <a class="dropdown-item" asp-action="Participants" asp-route-id="@item.Id">Register List</a>
+                                    <a class="dropdown-item text-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                                 </div>
                             </div>
                         </td>
                     </tr>
-    }
+                                }
                 </tbody>
+                    }
             </table>
+            @if(Model.Count() == 0){
+                <div class="bg-white border-lrb">
+                    <p class="m-0">Data Not Fond</p>
+                </div>
+            }
+
         </div>
     </div>
 </div>

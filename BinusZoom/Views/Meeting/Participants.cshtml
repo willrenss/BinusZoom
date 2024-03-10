@@ -4,69 +4,109 @@
     ViewBag.Title = "";
     Layout = "_Layout";
 }
-
-<h2>title</h2>
-<a class="btn btn-primary" asp-action="Index">Back</a>
 @if (!Model.hasSendCertificateToAll)
 {
-    <form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
-        <input id="attendanceCsv" name="attendanceCsv" type="file" />
-        <input type="submit" class="btn btn-primary" />
-    </form>
+<form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
+    <input id="attendanceCsv" name="attendanceCsv" type="file" />
+    <input type="submit" class="btn btn-primary" />
+</form>
 }
 
 <a class="btn btn-warning" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Send Certificate To All</a>
-    
-<table class="table">
-    <thead>
-    <tr>
-        <th>
-            Nama Lengkap
-        </th>
-        <th>
-            NIM
-        </th>
-        <th>
-            Email
-        </th>
-        <th>
-            Eligible for Certificate
-        </th>
-        <th>
-            Action
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model.Registrations)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NamaLengkap)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NIM)
-            </td>
-            <td>
-                @Html.DisplayTextFor(modelItem => item.Email)
-            </td>
-            <td>
-                @if (item.EligibleForCertificate)
-                {
-                    <span class="text-primary">Yes</span>
-                }
-                else
-                {
-                    <span class="text-danger">No</span>
-                }
-            </td>
-            <td>
-                @if (item.EligibleForCertificate)
-                {
-                    <a asp-controller="Registration" asp-action="Certificate" asp-route-id="@item.Id" class="btn btn-primary">Send Certificate Certificate</a>
-                }
-            </td>
-        </tr>
-    }
-    </tbody>
-</table>
+
+<div class="admin-page py-5">
+    <div class="container-lg ">
+        <div class="shadow-lg">
+            <div class="bg-white container-fluid d-flex justify-content-between align-items-center border-ltr px-3 py-3">
+                <h6 class="m-0">
+                    Participant List - @Html.DisplayFor(model => model.Title)
+                </h6>
+                <div class="d-flex">
+                    <a class="primary-filled-btn me-1" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Certificate To All</a>
+                    <a class="secondary-filled-btn" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Upload Attendance</a>
+                </div>
+            </div>
+            <div class="bg-white border-ltr py-2">
+                <div class=" d-flex align-items-center container-fluid ht-32 search-bar-group">
+                    <div class="bg-white d-flex align-items-center">
+                        <input form="search" class="me-1" name="titleFilter" placeholder="Search NIM" />
+                        <img width="16" height="16" src="~/images/search-data.png" />
+                    </div>
+                    <form id="search" method="get" asp-action="Index">
+                        <input type="submit" class="primary-filled-btn-small" value="Cari" />
+                    </form>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            No
+                        </th>
+                        <th>
+                            Full Name
+                        </th>
+                        <th>
+                            NIM
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Eligible for Certificate
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var (item, index) in Model.Registrations.Select((value, i) => (value, i)))
+            {
+                    <tr>
+                        <td>
+                            @(index+1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NamaLengkap)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NIM)
+                        </td>
+                        <td>
+                            @Html.DisplayTextFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @if (item.EligibleForCertificate)
+                            {
+                            <span class="text-primary">Yes</span>
+                            }
+                            else
+                            {
+                            <span class="text-danger">No</span>
+                            }
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <p class="menu-action dropdown-toggle" id="actionDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Menu
+                                </p>
+                                <div class="dropdown-menu" aria-labelledby="actionDropdown">
+                                    @if (item.EligibleForCertificate)
+                                    {
+                                    <a asp-controller="Registration" asp-action="Certificate" asp-route-id="@item.Id" class="dropdown-item">Send Certificate</a>
+                                    }
+                                    else{
+                                    <a class="dropdown-item">No Action</a>
+                                    }
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+            }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
