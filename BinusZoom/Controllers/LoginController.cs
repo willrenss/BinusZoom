@@ -29,7 +29,12 @@ public class LoginController : Controller
     {
         var user = await _context.UserLogin
             .FirstOrDefaultAsync(m => m.Username == username && m.Password == password);
-        if (user == null) return NotFound();
+        if (user == null)
+        {
+            ModelState.AddModelError("Password", "Username atau password salah");
+            return View();    
+        }
+        
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, user.Username)
