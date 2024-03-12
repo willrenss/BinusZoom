@@ -24,7 +24,6 @@
             <div class="navbar-collapse collapse d-sm-inline-flex">
                 <ul class="navbar-nav flex-grow-1 justify-content-end">
                     <li class="nav-item">
-
                         <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Index") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
@@ -33,6 +32,12 @@
                     <li class="nav-item">
                         <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Contact") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
                     </li>
+                    @if (Context.User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Meeting") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Meeting" asp-action="Index">Meeting Dashboard</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
