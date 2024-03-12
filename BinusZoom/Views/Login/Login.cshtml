@@ -1,3 +1,4 @@
+@model BinusZoom.Models.UserLogin
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,8 +7,13 @@
 
 <div>
     <form asp-action="Login" method="post">
-        <input name="username"/>
-        <input name="password"/>
-        <input type="submit"/>
+        <label asp-for="Username" class="label-form">Username</label>
+        <input asp-for="Username" class="form-control" placeholder="Username"/>
+
+        <label asp-for="Password" class="label-form">Password</label>
+        <input asp-for="Password" class="form-control" placeholder="Password" type="password"/>
+        <span asp-validation-for="Password" class="text-danger"></span>
+        
+        <input type="submit" value="Login" class="primary-filled-btn-filled-btn mt-3"/>
     </form>
 </div>
