@@ -219,37 +219,44 @@ public class MeetingController : Controller
             .Where(reg => reg.EligibleForCertificate == true)
             .ToListAsync();
 
-        var firstParticipant = participants.First();
-
-        // send certificate to participants
-        var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
-            "Template/MailTemplate/ConfirmationMail", firstParticipant);
-
-        foreach (var participant in participants)
+        if (participants.Count > 0)
         {
-            var mailData = new MailData
+            var firstParticipant = participants.First();
+
+            // send certificate to participants
+            var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+                "Template/MailTemplate/ConfirmationMail", firstParticipant);
+
+            foreach (var participant in participants)
             {
-                EmailToId = participant.Email,
-                EmailToName = participant.NamaLengkap,
-                EmailSubject = "Registration Confirmation",
-                EmailBody = emailBody
-            };
+                var mailData = new MailData
+                {
+                    EmailToId = participant.Email,
+                    EmailToName = participant.NamaLengkap,
+                    EmailSubject = "Registration Confirmation",
+                    EmailBody = emailBody
+                };
 
-            var certifRender = new CSCertificateRenderer();
-            var pdfBytes = await certifRender.RenderCSHtmlToPdf(ControllerContext,
-                "Template/CertificateTemplate/Certificate", participant);
+                var certifRender = new CSCertificateRenderer();
+                var pdfBytes = await certifRender.RenderCSHtmlToPdf(ControllerContext,
+                    "Template/CertificateTemplate/Certificate", participant);
 
-            await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+                await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+            }
+
+            Meeting? currentMeeting = _context.Meeting.Find(meeting_id);
+            if (currentMeeting != null)
+            {
+                currentMeeting.hasSendCertificateToAll = true;
+                await _context.SaveChangesAsync();
+            }
         }
-
-        Meeting? currentMeeting = _context.Meeting.Find(meeting_id);
-        if (currentMeeting != null)
+        else
         {
-            currentMeeting.hasSendCertificateToAll = true;
-            await _context.SaveChangesAsync();
+            TempData["Alert"] = "Tidak ada peserta yang eligible";
         }
-        
-        return RedirectToAction(nameof(Participants), new { id = meeting_id});
+
+        return await Participants(meeting_id);
     }
 
     [HttpPost("Meeting/{id}/CsvAttendance")]
@@ -278,6 +285,14 @@ public class MeetingController : Controller
         
 
         var result = listOfAttendees.AsEnumerable();
+
+        // set all to not eligible
+        await _context.Registration
+            .Where(registration => registration.Meeting.Id == id)
+            .ExecuteUpdateAsync(calls =>
+                calls.SetProperty( registration => registration.EligibleForCertificate, false)
+            );
+        
         var attendeesListOver35Minutes = from attendee in result
             where attendee.Duration >= 35
             group attendee by attendee.UserEmail
