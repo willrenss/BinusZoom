@@ -10,6 +10,7 @@
 *.userosscache
 *.sln.docstates
 *.bin
+*.pdf
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -404,3 +405,5 @@ FodyWeavers.xsd
 *.jpg
 *.jpeg
 *.png
+
+!wwwroot/images/*
