@@ -11,7 +11,7 @@ public class BinusZoomContext : DbContext
         //ensure migrated
     }
 
-    public DbSet<Meeting> Meeting { get; set; } = default!;
+    public DbSet<Meeting?> Meeting { get; set; } = default!;
 
     public DbSet<Registration> Registration { get; set; } = default!;
     

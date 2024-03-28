@@ -44,10 +44,13 @@ namespace BinusZoom.Controllers
         [HttpGet("Registration/{event_id}")]
         public IActionResult Create(String event_id)
         {
-            Meeting meeting = _context.Meeting.Find(event_id);
+            Meeting? meeting = _context.Meeting.
+                Where(e => e.MeetingDate > System.DateTime.Now)
+                .FirstOrDefault(e => e.Id == event_id, null);
             if (meeting == null)
             {
-                return NotFound();
+                // redirect to available meeting list
+                return RedirectToAction("Index", "Meeting");
             }
             ViewData["Meeting"] = meeting;
             return View();

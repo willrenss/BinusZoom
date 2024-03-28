@@ -261,60 +261,64 @@ public class MeetingController : Controller
 
     [HttpPost("Meeting/{id}/CsvAttendance")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AttendanceCsv(String id, IFormFile attendanceCsv)
+    public async Task<IActionResult> AttendanceCsv(String id, IFormFile? attendanceCsv)
     {
-        var sr = new StreamReader(attendanceCsv.OpenReadStream());
-        await sr.ReadLineAsync();
-        await sr.ReadLineAsync();
-        await sr.ReadLineAsync();
-
-        var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
-        await csv.ReadAsync();
-        csv.ReadHeader();
-
-        var listOfAttendees = new List<Participants>();
-        while (await csv.ReadAsync())
+        if (attendanceCsv != null)
         {
-            var obj = new Participants
+            var sr = new StreamReader(attendanceCsv.OpenReadStream());
+            await sr.ReadLineAsync();
+            await sr.ReadLineAsync();
+            await sr.ReadLineAsync();
+
+            var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
+            await csv.ReadAsync();
+            csv.ReadHeader();
+
+            var listOfAttendees = new List<Participants>();
+            while (await csv.ReadAsync())
             {
-                UserEmail = csv.GetField<string>("User Email"),
-                Duration = csv.GetField<int>("Duration (Minutes)")
-            };
-            listOfAttendees.Add(obj);
-        }
+                var obj = new Participants
+                {
+                    UserEmail = csv.GetField<string>("User Email"),
+                    Duration = csv.GetField<int>("Duration (Minutes)")
+                };
+                listOfAttendees.Add(obj);
+            }
         
 
-        var result = listOfAttendees.AsEnumerable();
+            var result = listOfAttendees.AsEnumerable();
 
-        // set all to not eligible
-        await _context.Registration
-            .Where(registration => registration.Meeting.Id == id)
-            .ExecuteUpdateAsync(calls =>
-                calls.SetProperty( registration => registration.EligibleForCertificate, false)
-            );
+            // set all to not eligible
+            await _context.Registration
+                .Where(registration => registration.Meeting.Id == id)
+                .ExecuteUpdateAsync(calls =>
+                    calls.SetProperty( registration => registration.EligibleForCertificate, false)
+                );
         
-        var attendeesListOver35Minutes = from attendee in result
-            where attendee.Duration >= 35
-            group attendee by attendee.UserEmail
-            into g
-            select new
-            {
-                UserEmail = g.Key,
-                TotalDuration = g.Max(attendee => attendee.Duration)
-            };
+            var attendeesListOver35Minutes = from attendee in result
+                where attendee.Duration >= 35
+                group attendee by attendee.UserEmail
+                into g
+                select new
+                {
+                    UserEmail = g.Key,
+                    TotalDuration = g.Max(attendee => attendee.Duration)
+                };
 
-        // find all attendeesListOver35Minutes where email is in the list of Registration table
-        var studentResult = _context.Registration
-            .Where(registration => attendeesListOver35Minutes
+            // find all attendeesListOver35Minutes where email is in the list of Registration table
+            var studentResult = _context.Registration
+                .Where(registration => attendeesListOver35Minutes
                     .Select(attendee => attendee.UserEmail)
-                .Contains(registration.Email));
+                    .Contains(registration.Email));
   
-        foreach (var x1 in studentResult)
-        {
-            x1.EligibleForCertificate = true;
-        }
+            foreach (var x1 in studentResult)
+            {
+                x1.EligibleForCertificate = true;
+            }
 
-        await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+        }
+        
         return RedirectToAction(nameof(Participants), new { id = id});
     }
 
