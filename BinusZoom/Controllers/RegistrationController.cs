@@ -217,7 +217,7 @@ namespace BinusZoom.Controllers
         }
 
         // GET: Registration/5/Certificate
-        [HttpGet("Registration/{id}/Certificate")]
+        [HttpGet("Registration/{id}/SendCertificate")]
         public async Task<IActionResult> SendCertificateTo(string? id)
         {
             if (id == null) return NotFound();
@@ -248,7 +248,7 @@ namespace BinusZoom.Controllers
                 }
                 catch (Exception e)
                 {
-                    // todo: write exception
+                    Console.WriteLine(e.Message);
                 }
 
                 return RedirectToAction("Participants", "Meeting", new { id = registration.Meeting.Id });

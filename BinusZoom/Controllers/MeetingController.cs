@@ -154,7 +154,7 @@ public class MeetingController : Controller
             {
                 meetingTarget.MeetingDate = meeting.MeetingDate;
                 meetingTarget.LinkUrl = meeting.LinkUrl;
-            
+                
                 _context.Update(meetingTarget);
                 await _context.SaveChangesAsync();
             }
@@ -164,6 +164,27 @@ public class MeetingController : Controller
                     return NotFound();
                 throw;
             }
+            
+            // send notification to all attendees
+            var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+                "Template/MailTemplate/MeetingUpdateMail", meetingTarget);
+            
+            var participants = await _context.Registration
+                .Where(reg => reg.Meeting.Id == id)
+                .ToListAsync();
+
+            foreach (var participant in participants)
+            {
+                var mailData = new MailData
+                {
+                    EmailToId = participant.Email,
+                    EmailToName = participant.NamaLengkap,
+                    EmailSubject = "Webinar Update Information",
+                    EmailBody = emailBody
+                };
+                await _mailSender.SendMail(mailData);
+            }
+            
             return RedirectToAction(nameof(Index));
         }
 
@@ -214,7 +235,6 @@ public class MeetingController : Controller
     {
         var startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
-        // get 50 participants
         var participants = await _context.Registration
             .Where(reg => reg.Meeting.Id == meeting_id)
             .Where(reg => reg.EligibleForCertificate == true)
