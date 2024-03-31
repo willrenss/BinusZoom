@@ -1,3 +1,4 @@
+using System.Drawing;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BinusZoom.Data;
@@ -5,6 +6,10 @@ using BinusZoom.Models;
 using BinusZoom.Service.CertificateService;
 using BinusZoom.Service.EmailService;
 using BinusZoom.Template.MailTemplate;
+using Spire.Pdf;
+using Spire.Pdf.Fields;
+using Spire.Pdf.Graphics;
+using Spire.Pdf.Widget;
 
 namespace BinusZoom.Controllers
 {
@@ -231,6 +236,37 @@ namespace BinusZoom.Controllers
             {
                 try
                 {
+                    PdfDocument doc = new PdfDocument();
+                    Meeting meeting = registration.Meeting;
+                    String certificatePath = @"certificate template\" + meeting.CertificatePath;
+
+                    doc.LoadFromFile(certificatePath);
+                    PdfFormWidget formWidget = doc.Form as PdfFormWidget;
+
+                    for (int i = 0; i < formWidget.FieldsWidget.List.Count; i++)
+                    {
+                        PdfField field = formWidget.FieldsWidget.List[i] as PdfField;
+                        if (field is PdfTextBoxFieldWidget)
+                        {
+                            PdfTextBoxFieldWidget textBoxField = field as PdfTextBoxFieldWidget;
+                            switch (textBoxField.Name)
+                            {
+                                case "name":
+                                    textBoxField.Text = registration.NamaLengkap;
+                                    textBoxField.ReadOnly = true;
+                                    break;
+                                
+                                case "event":
+                                    textBoxField.Text = meeting.Title;
+                                    textBoxField.ReadOnly = true;
+                                    break;
+                            }
+                        }
+                    }
+                    
+                    MemoryStream ms = new MemoryStream();
+                    doc.SaveToStream(ms);
+
                     String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext,
                         "Template/MailTemplate/CertificateMail", registration);
                     MailData mailData = new MailData
@@ -244,7 +280,7 @@ namespace BinusZoom.Controllers
                     var pdfBytes = await certifRender.RenderCSHtmlToPdf(this.ControllerContext,
                         "Template/CertificateTemplate/Certificate", registration);
 
-                    await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+                    await _mailSender.SendMailWithAttachment(mailData, ms.GetBuffer());
                 }
                 catch (Exception e)
                 {
