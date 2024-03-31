@@ -210,9 +210,32 @@ public class MeetingController : Controller
     public async Task<IActionResult> DeleteConfirmed(string id)
     {
         var meeting = await _context.Meeting.FindAsync(id);
-        if (meeting != null) _context.Meeting.Remove(meeting);
 
-        await _context.SaveChangesAsync();
+        if (meeting != null)
+        {
+            // send notification to all attendees
+            var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+                "Template/MailTemplate/MeetingCancelEmail", meeting);
+
+            var participants = await _context.Registration
+                .Where(reg => reg.Meeting.Id == id)
+                .ToListAsync();
+
+            foreach (var participant in participants)
+            {
+                var mailData = new MailData
+                {
+                    EmailToId = participant.Email,
+                    EmailToName = participant.NamaLengkap,
+                    EmailSubject = "Webinar Cancellation",
+                    EmailBody = emailBody
+                };
+                await _mailSender.SendMail(mailData);
+            }
+
+            _context.Meeting.Remove(meeting);
+            await _context.SaveChangesAsync();
+        }
         return RedirectToAction(nameof(Index));
     }
 

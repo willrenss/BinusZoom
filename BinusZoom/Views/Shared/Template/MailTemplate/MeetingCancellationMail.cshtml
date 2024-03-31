@@ -1,0 +1,20 @@
+@model BinusZoom.Models.Meeting
+@{
+    ViewData["Title"] = "Meeting Cancellation Mail";
+}
+
+<h2>ConfirmationMail</h2>
+<div>
+    <h3>Hallo Binusian</h3>
+    <p>
+        Meeting Anda dengan detail Telah batal berikut:
+        <table>
+            <tr>
+                <td>Jam: </td> <td>@Model.MeetingDate</td>
+            </tr>
+            <tr>
+                <td>Link: </td> <td>@Model.LinkUrl</td>
+            </tr>
+        </table>
+    </p>
+</div>
