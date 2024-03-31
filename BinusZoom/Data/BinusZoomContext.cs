@@ -16,4 +16,6 @@ public class BinusZoomContext : DbContext
     public DbSet<Registration> Registration { get; set; } = default!;
     
     public DbSet<UserLogin> UserLogin { get; set; } = default!;
+    
+    public DbSet<TemporaryLogo> TemporaryLogo { get; set; } = default!;
 }
