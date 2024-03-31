@@ -144,16 +144,18 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(string id,
-        [Bind("Id,MeetingDate,MeetingEndDate,PosterPath,CertificateTemplatePath")]
+        [Bind("Id, MeetingDate, PosterPath, LinkUrl")]
         Meeting meeting)
     {
-        if (id != meeting.Id) return NotFound();
-
-        if (ModelState.IsValid)
+        Meeting? meetingTarget = await _context.Meeting.FindAsync(id);
+        if (meetingTarget != null)
         {
             try
             {
-                _context.Update(meeting);
+                meetingTarget.MeetingDate = meeting.MeetingDate;
+                meetingTarget.LinkUrl = meeting.LinkUrl;
+            
+                _context.Update(meetingTarget);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -162,7 +164,6 @@ public class MeetingController : Controller
                     return NotFound();
                 throw;
             }
-
             return RedirectToAction(nameof(Index));
         }
 

@@ -13,14 +13,14 @@ namespace BinusZoom.Controllers
         private readonly BinusZoomContext _context;
         private readonly CSMailRenderer _csMailRenderer;
         private readonly MailSender _mailSender;
-        
+
         public RegistrationController(BinusZoomContext context, CSMailRenderer csMailRenderer, MailSender mailSender)
         {
             _context = context;
             _csMailRenderer = csMailRenderer;
             _mailSender = mailSender;
         }
-        
+
         // GET: Registration/Details/5
         [HttpGet("Registration/Details/{id}")]
         public async Task<IActionResult> Details(string id)
@@ -44,14 +44,16 @@ namespace BinusZoom.Controllers
         [HttpGet("Registration/{event_id}")]
         public IActionResult Create(String event_id)
         {
-            Meeting? meeting = _context.Meeting.
-                Where(e => e.MeetingDate > System.DateTime.Now)
-                .FirstOrDefault(e => e.Id == event_id, null);
+            Meeting? meeting = _context.Meeting
+                .Where(meeting1 => meeting1.Id == event_id)
+                .Where(meeting1 => meeting1.MeetingDate > DateTime.Now)
+                .FirstOrDefault();
             if (meeting == null)
             {
                 // redirect to available meeting list
                 return RedirectToAction("Index", "Meeting");
             }
+
             ViewData["Meeting"] = meeting;
             return View();
         }
@@ -61,16 +63,28 @@ namespace BinusZoom.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost("Registration/{eventId}")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NIM,Email,NamaLengkap")] Registration registration, String eventId)
+        public async Task<IActionResult> Create([Bind("NIM,Email,NamaLengkap")] Registration registration,
+            String eventId)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    registration.Meeting = await _context.Meeting.FindAsync(eventId);
+                    Registration? existedRegistration = _context.Registration
+                        .Where(r => r.Email == registration.Email)
+                        .FirstOrDefault(r => r.Meeting != null && r.Meeting.Id == eventId);
+
+                    if (existedRegistration != null)
+                        return RedirectToAction(nameof(Confirmation), new { registration_id = existedRegistration.Id });
+
+                    Meeting? targetMeeting = await _context.Meeting.FindAsync(eventId);
+                    if(targetMeeting == null)
+                        return RedirectToAction("Index", "Meeting");
+                    
+                    registration.Meeting = targetMeeting;
                     await _context.AddAsync(registration);
                     await _context.SaveChangesAsync();
-                    
+
                     String emailBody = await _csMailRenderer.RenderCSHtmlToString(this.ControllerContext,
                         "Template/MailTemplate/ConfirmationMail", registration);
                     MailData mailData = new MailData
@@ -80,19 +94,20 @@ namespace BinusZoom.Controllers
                         EmailSubject = "Registration Confirmation",
                         EmailBody = emailBody
                     };
-            
+
                     await _mailSender.SendMail(mailData);
                 }
                 catch (Exception e)
                 {
                     return View(registration);
                 }
-                    
+
                 return RedirectToAction(nameof(Confirmation), new { registration_id = registration.Id });
             }
+
             return View(registration);
         }
-        
+
         // GET: Registration/Confirmation
         [HttpGet("Registration/{registration_id}/Confirmation")]
         public async Task<IActionResult> Confirmation(String registration_id)
@@ -100,7 +115,7 @@ namespace BinusZoom.Controllers
             var registration = await _context.Registration
                 .Include(r => r.Meeting)
                 .FirstOrDefaultAsync(registration1 => registration1.Id == registration_id);
-            
+
             if (registration == null)
             {
                 return NotFound();
@@ -108,7 +123,7 @@ namespace BinusZoom.Controllers
 
             return View(registration);
         }
-        
+
         // GET: Registration/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -122,6 +137,7 @@ namespace BinusZoom.Controllers
             {
                 return NotFound();
             }
+
             return View(registration);
         }
 
@@ -155,8 +171,10 @@ namespace BinusZoom.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index), "Meeting");
             }
+
             return View(registration);
         }
 
@@ -197,7 +215,7 @@ namespace BinusZoom.Controllers
         {
             return _context.Registration.Any(e => e.Id == id);
         }
-        
+
         // GET: Registration/5/Certificate
         [HttpGet("Registration/{id}/Certificate")]
         public async Task<IActionResult> SendCertificateTo(string? id)
@@ -208,7 +226,7 @@ namespace BinusZoom.Controllers
                 .Include(registration1 => registration1.Meeting)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (registration == null) return NotFound();
-            
+
             if (registration.EligibleForCertificate)
             {
                 try
@@ -223,8 +241,9 @@ namespace BinusZoom.Controllers
                         EmailBody = emailBody
                     };
                     var certifRender = new CSCertificateRenderer();
-                    var pdfBytes = await certifRender.RenderCSHtmlToPdf(this.ControllerContext, "Template/CertificateTemplate/Certificate", registration);
-            
+                    var pdfBytes = await certifRender.RenderCSHtmlToPdf(this.ControllerContext,
+                        "Template/CertificateTemplate/Certificate", registration);
+
                     await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
                 }
                 catch (Exception e)
