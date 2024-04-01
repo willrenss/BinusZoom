@@ -14,24 +14,23 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white">
-        <div class="container-fluid justify-content-between px-5 ">
-            <a class="navbar-brand fw-bolder text-secondary text-uppercase fs-3" asp-area="" asp-controller="Home" asp-action="Index">BinusZoom</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+    <nav class=" navbar-style navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
+        <div class="container-fluid justify-content-between align-items-center px-5 ">
+            <img width="55" src="~/images/logo.png"/>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex">
                 <ul class="navbar-nav flex-grow-1 justify-content-end">
                     <li class="nav-item">
-
-                        <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Index") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-link text-white fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Index") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Privacy") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
+                        <a class="nav-link text-white fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Privacy") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-primary fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Contact") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
+                        <a class="nav-link text-white fw-bold @(BinusZoom.Controllers._LayoutController.IsActiveAction(ViewContext.RouteData.Values["Action"]?.ToString(), "Contact") == "Aktif" ? "" :  "opacity-50" )" asp-area="" asp-controller="Home" asp-action="Privacy">Contact Us</a>
                     </li>
                 </ul>
             </div>

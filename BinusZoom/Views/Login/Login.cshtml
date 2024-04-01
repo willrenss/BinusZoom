@@ -4,10 +4,28 @@
 }
 @*create simple login page*@
 
-<div>
-    <form asp-action="Login" method="post">
-        <input name="username"/>
-        <input name="password"/>
-        <input type="submit"/>
-    </form>
+<div class="admin-page align-items-center">
+    <div class="container d-flex justify-content-center align-items-center row background">            
+        <div class="bg-white rounded col-lg-4 shadow-lg background-detail padding-zero">
+            <div class="navbar-login  d-flex justify-content-center align-items-center">
+                <img width="65" src="~/images/logo.png" />
+            </div>
+            <form class="d-flex flex-column px-5 py-4" asp-action="Login" method="post">
+                <div class="form-group mt-2">
+                    <label class="label-form">Username</label>
+                    <input name="username" class="form-control" placeholder="Username" />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label class="label-form">Password</label>
+                    <input type="password" name="password" class="form-control" placeholder="Password" />
+                    <span class="text-danger"></span>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <input type="submit" value="Login" class="secondary-filled-btn mt-3" />
+                </div>
+            </form>
+        </div>
+        
+    </div>   
 </div>
