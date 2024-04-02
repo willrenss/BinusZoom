@@ -11,20 +11,25 @@
             <form class="bg-white px-5 pt-5 pb-3 rounded justify-content-center shadow-lg" asp-action="Edit">
                 <h1 class="text-center">Edit Event</h1>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
+                <input type="hidden" asp-for="Id"/>
                 <div class="form-group">
                     <label asp-for="MeetingDate" class="label-form"></label>
-                    <input asp-for="MeetingDate" class="form-control" />
+                    <input asp-for="MeetingDate" class="form-control" type="datetime-local"/>
                     <span asp-validation-for="MeetingDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="PosterPath" class="label-form"></label>
-                    <input asp-for="PosterPath" class="form-control" />
+                    <input asp-for="PosterPath" class="form-control"/>
                     <span asp-validation-for="PosterPath" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LinkUrl" class="label-form"></label>
+                    <input asp-for="LinkUrl" class="form-control"/>
+                    <span asp-validation-for="LinkUrl" class="text-danger"></span>
                 </div>
                 <div class="form-group d-flex justify-content-end mt-3 pt-3">
                     <a class="secondary-filled-btn me-2" asp-action="Index">Cancel</a>
-                    <input type="submit" value="Save" class="primary-filled-btn" />
+                    <input type="submit" value="Save" class="primary-filled-btn"/>
                 </div>
             </form>
         </div>
