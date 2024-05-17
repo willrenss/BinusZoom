@@ -75,7 +75,7 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(
-        [Bind("Title,MeetingDate,PosterPath, LinkUrl")]
+        [Bind("Title, MeetingDate, PosterPath, Description, LinkUrl")]
         Meeting meeting,
         IFormFile posterTemplate,
         IFormFile certificateTemplate)
@@ -144,16 +144,18 @@ public class MeetingController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(string id,
-        [Bind("Id,MeetingDate,MeetingEndDate,PosterPath,CertificateTemplatePath")]
+        [Bind("Id, MeetingDate, PosterPath, LinkUrl")]
         Meeting meeting)
     {
-        if (id != meeting.Id) return NotFound();
-
-        if (ModelState.IsValid)
+        Meeting? meetingTarget = await _context.Meeting.FindAsync(id);
+        if (meetingTarget != null)
         {
             try
             {
-                _context.Update(meeting);
+                meetingTarget.MeetingDate = meeting.MeetingDate;
+                meetingTarget.LinkUrl = meeting.LinkUrl;
+                
+                _context.Update(meetingTarget);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -162,7 +164,27 @@ public class MeetingController : Controller
                     return NotFound();
                 throw;
             }
+            
+            // send notification to all attendees
+            var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+                "Template/MailTemplate/MeetingUpdateMail", meetingTarget);
+            
+            var participants = await _context.Registration
+                .Where(reg => reg.Meeting.Id == id)
+                .ToListAsync();
 
+            foreach (var participant in participants)
+            {
+                var mailData = new MailData
+                {
+                    EmailToId = participant.Email,
+                    EmailToName = participant.NamaLengkap,
+                    EmailSubject = "Webinar Update Information",
+                    EmailBody = emailBody
+                };
+                await _mailSender.SendMail(mailData);
+            }
+            
             return RedirectToAction(nameof(Index));
         }
 
@@ -188,9 +210,32 @@ public class MeetingController : Controller
     public async Task<IActionResult> DeleteConfirmed(string id)
     {
         var meeting = await _context.Meeting.FindAsync(id);
-        if (meeting != null) _context.Meeting.Remove(meeting);
 
-        await _context.SaveChangesAsync();
+        if (meeting != null)
+        {
+            // send notification to all attendees
+            var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+                "Template/MailTemplate/MeetingCancelEmail", meeting);
+
+            var participants = await _context.Registration
+                .Where(reg => reg.Meeting.Id == id)
+                .ToListAsync();
+
+            foreach (var participant in participants)
+            {
+                var mailData = new MailData
+                {
+                    EmailToId = participant.Email,
+                    EmailToName = participant.NamaLengkap,
+                    EmailSubject = "Webinar Cancellation",
+                    EmailBody = emailBody
+                };
+                await _mailSender.SendMail(mailData);
+            }
+
+            _context.Meeting.Remove(meeting);
+            await _context.SaveChangesAsync();
+        }
         return RedirectToAction(nameof(Index));
     }
 
@@ -213,93 +258,111 @@ public class MeetingController : Controller
     {
         var startTime = DateTimeOffset.Now.ToUnixTimeMilliseconds();
 
-        // get 50 participants
         var participants = await _context.Registration
             .Where(reg => reg.Meeting.Id == meeting_id)
             .Where(reg => reg.EligibleForCertificate == true)
             .ToListAsync();
 
-        var firstParticipant = participants.First();
-
-        // send certificate to participants
-        var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
-            "Template/MailTemplate/ConfirmationMail", firstParticipant);
-
-        foreach (var participant in participants)
+        if (participants.Count > 0)
         {
-            var mailData = new MailData
+            var firstParticipant = participants.First();
+
+            // send certificate to participants
+            var emailBody = await _csMailRenderer.RenderCSHtmlToString(ControllerContext,
+                "Template/MailTemplate/ConfirmationMail", firstParticipant);
+
+            foreach (var participant in participants)
             {
-                EmailToId = participant.Email,
-                EmailToName = participant.NamaLengkap,
-                EmailSubject = "Registration Confirmation",
-                EmailBody = emailBody
-            };
+                var mailData = new MailData
+                {
+                    EmailToId = participant.Email,
+                    EmailToName = participant.NamaLengkap,
+                    EmailSubject = "Registration Confirmation",
+                    EmailBody = emailBody
+                };
 
-            var certifRender = new CSCertificateRenderer();
-            var pdfBytes = await certifRender.RenderCSHtmlToPdf(ControllerContext,
-                "Template/CertificateTemplate/Certificate", participant);
+                var certifRender = new CSCertificateRenderer();
+                var pdfBytes = await certifRender.RenderCSHtmlToPdf(ControllerContext,
+                    "Template/CertificateTemplate/Certificate", participant);
 
-            await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+                await _mailSender.SendMailWithAttachment(mailData, pdfBytes);
+            }
+
+            Meeting? currentMeeting = _context.Meeting.Find(meeting_id);
+            if (currentMeeting != null)
+            {
+                currentMeeting.hasSendCertificateToAll = true;
+                await _context.SaveChangesAsync();
+            }
         }
-
-        Meeting? currentMeeting = _context.Meeting.Find(meeting_id);
-        if (currentMeeting != null)
+        else
         {
-            currentMeeting.hasSendCertificateToAll = true;
-            await _context.SaveChangesAsync();
+            TempData["Alert"] = "Tidak ada peserta yang eligible";
         }
-        
-        return RedirectToAction(nameof(Participants), new { id = meeting_id});
+
+        return await Participants(meeting_id);
     }
 
     [HttpPost("Meeting/{id}/CsvAttendance")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> AttendanceCsv(String id, IFormFile attendanceCsv)
+    public async Task<IActionResult> AttendanceCsv(String id, IFormFile? attendanceCsv)
     {
-        var sr = new StreamReader(attendanceCsv.OpenReadStream());
-        await sr.ReadLineAsync();
-        await sr.ReadLineAsync();
-        await sr.ReadLineAsync();
-
-        var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
-        await csv.ReadAsync();
-        csv.ReadHeader();
-
-        var listOfAttendees = new List<Participants>();
-        while (await csv.ReadAsync())
+        if (attendanceCsv != null)
         {
-            var obj = new Participants
+            var sr = new StreamReader(attendanceCsv.OpenReadStream());
+            await sr.ReadLineAsync();
+            await sr.ReadLineAsync();
+            await sr.ReadLineAsync();
+
+            var csv = new CsvReader(sr, CultureInfo.InvariantCulture);
+            await csv.ReadAsync();
+            csv.ReadHeader();
+
+            var listOfAttendees = new List<Participants>();
+            while (await csv.ReadAsync())
             {
-                UserEmail = csv.GetField<string>("User Email"),
-                Duration = csv.GetField<int>("Duration (Minutes)")
-            };
-            listOfAttendees.Add(obj);
-        }
+                var obj = new Participants
+                {
+                    UserEmail = csv.GetField<string>("User Email"),
+                    Duration = csv.GetField<int>("Duration (Minutes)")
+                };
+                listOfAttendees.Add(obj);
+            }
         
 
-        var result = listOfAttendees.AsEnumerable();
-        var attendeesListOver35Minutes = from attendee in result
-            where attendee.Duration >= 35
-            group attendee by attendee.UserEmail
-            into g
-            select new
-            {
-                UserEmail = g.Key,
-                TotalDuration = g.Max(attendee => attendee.Duration)
-            };
+            var result = listOfAttendees.AsEnumerable();
 
-        // find all attendeesListOver35Minutes where email is in the list of Registration table
-        var studentResult = _context.Registration
-            .Where(registration => attendeesListOver35Minutes
+            // set all to not eligible
+            await _context.Registration
+                .Where(registration => registration.Meeting.Id == id)
+                .ExecuteUpdateAsync(calls =>
+                    calls.SetProperty( registration => registration.EligibleForCertificate, false)
+                );
+        
+            var attendeesListOver35Minutes = from attendee in result
+                where attendee.Duration >= 35
+                group attendee by attendee.UserEmail
+                into g
+                select new
+                {
+                    UserEmail = g.Key,
+                    TotalDuration = g.Max(attendee => attendee.Duration)
+                };
+
+            // find all attendeesListOver35Minutes where email is in the list of Registration table
+            var studentResult = _context.Registration
+                .Where(registration => attendeesListOver35Minutes
                     .Select(attendee => attendee.UserEmail)
-                .Contains(registration.Email));
+                    .Contains(registration.Email));
   
-        foreach (var x1 in studentResult)
-        {
-            x1.EligibleForCertificate = true;
-        }
+            foreach (var x1 in studentResult)
+            {
+                x1.EligibleForCertificate = true;
+            }
 
-        await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
+        }
+        
         return RedirectToAction(nameof(Participants), new { id = id});
     }
 

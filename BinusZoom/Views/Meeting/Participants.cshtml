@@ -1,16 +1,15 @@
 @model Meeting
 
 @{
+    var x = ViewData["Alert"];
     ViewBag.Title = "";
     Layout = "_Layout";
 }
-@if (!Model.hasSendCertificateToAll)
-{
-    <form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
-        <input id="attendanceCsv" name="attendanceCsv" type="file"/>
-        <input type="submit" class="btn btn-primary"/>
-    </form>
-}
+
+<form asp-action="AttendanceCsv" asp-route-id=@Model.Id method="post" enctype="multipart/form-data">
+    <input id="attendanceCsv" name="attendanceCsv" type="file"/>
+    <input type="submit" value="Upload .csv" class="btn btn-primary"/>
+</form>
 
 <a class="btn btn-warning" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Send Certificate To All</a>
 
@@ -23,7 +22,7 @@
                 </h6>
                 <div class="d-flex">
                     <a class="primary-filled-btn me-1" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Certificate To All</a>
-                    <a class="secondary-filled-btn" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Upload Attendance</a>
+                    <a class="secondary-filled-btn" onclick="" asp-action="SendCertificateToAll" asp-route-meeting_id="@Model.Id">Upload Attendance</a>
                 </div>
             </div>
             <div class="bg-white border-ltr py-2">
@@ -111,3 +110,7 @@
         </div>
     </div>
 </div>
+
+<script>
+    
+</script>

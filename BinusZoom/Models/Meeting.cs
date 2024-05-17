@@ -28,6 +28,11 @@ public class Meeting
     [Display(Name = "URL untuk link meeting")]
     public String LinkUrl { get; set; }
     
+    [Required(ErrorMessage = "Harap mengisi deskripsi meeting")]
+    [Display(Name = "Deskripsi Meeting")]
+    public String Description { get; set; }
+    
+    
     [ValidateNever] // exclude from modelstate.isvalid when create
     public string PosterPath { get; set; }
 
